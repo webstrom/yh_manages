@@ -1,0 +1,69 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 用户充值记录
+    body
+        div.yh_manage_account#manages_finance_rechargeRecord
+            div.yh_operation
+                a excel导出
+                div.yh_role_search.yh_user_right_input.yh_census_input
+                    input(type='text' placeholder='机构名称' onfocus="this.placeholder=''" onblur="this.placeholder='机构名称'")
+                    input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                    select
+                        option 类型
+                        option 类型
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_1')
+                        i.iconfont.icon-riqi
+                    a
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 订单id
+                            th 机构名称
+                            th 机构码
+                            th 金额
+                            th 手续费
+                            th 账号名称
+                            th 银行卡号
+                            th 银行类型
+                            th(width='5%') 申请时间
+                            th 状态
+                            th 类型
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.name')
+                            td(v-html='item.sbm')
+                            td(v-html='item.dis')
+                            td(v-html='item.nl')
+                            td(v-html='item.sfz')
+                            td(v-html='item.zt')
+                            td(v-html='item.sj')
+                            td(v-html='item.da')
+                            td(v-html='item.qz')
+                            td(v-html='item.qd')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除

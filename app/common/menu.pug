@@ -1,0 +1,35 @@
+div.yh_manage_login
+    p.yh_login
+        span
+            img(src='../../public/index/images/logo_home.png')
+        a UPRIC后台管理系统
+    div.yh_meun_navigation(v-for='(items,index) in manageMeun')
+        div(:class='items.meunOpen?"yh_meun":""' @click='OpenMenu(index)')
+            i.iconfont(:class='items.iconCls')
+            em(v-html='items.text')
+            i.iconfont(:class='items.meunOpen?"icon-top":"icon-down"')
+        ul(v-if='items.meunOpen')
+            li(v-for='(item,cur) in items.children' @click='meundistre(index,cur)')
+                a(v-html='item.text' :class='item.class?"yh_meun_active":""')
+    //div.yh_meun_navigation
+        div.yh_meun
+            i.iconfont.icon-icon208
+            em 系统管理
+            i.iconfont.icon-top
+        ul
+            li
+                a.yh_meun_active 机构管理
+            li
+                a 后台账号管理
+            li
+                a 角色管理
+            li
+                a 服务设置
+            li
+                a 多服务设置
+            li
+                a 业务员管理
+            li
+                a 公众号服务设置
+            li
+                a 代理商管理

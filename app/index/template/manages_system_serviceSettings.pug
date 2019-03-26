@@ -1,0 +1,297 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 服务设置
+    body
+        div.yh_manage_account#manages_system_serviceSettings
+            div.yh_manages_serviceSettings
+                a(@click='RuleSetting' :class='Rule?"yh_active_service":""') 规则设置
+                a(@click='OpeningSettings' :class='Opening?"yh_active_service":""') 服务开通设置
+                a(@click='MachineSettings' :class='Machine?"yh_active_service":""') 机审设置
+            div.yh_setting(v-if='Rule')
+                div.yh_active_center
+                    div.yh_setting_left
+                        div.service_center
+                            p
+                                a 随手借
+                            p
+                                span 随手借最低金额
+                                input
+                                em 元
+                            p
+                                span 随手借最高金额
+                                input
+                                em 元
+                            p
+                                span 随手借借款天数
+                                input
+                                em 元
+                            p
+                                span 随手借快速审核费
+                                input
+                                select
+                                    option 元
+                                    option 美元
+                            p
+                                span 随手借资金通道费
+                                input
+                                em 元
+                            p
+                                span 随手借服务费率
+                                input
+                                em %/天
+                            p
+                                span 随手借利息率
+                                input
+                                em %/天
+                            p
+                                span 随手借逾期费率
+                                input
+                                em %/天
+                            p
+                                span 随手借最高逾期天数
+                                input
+                                em 天
+                            p.yh_balance
+                                span 随手借固定显示金额
+                                input
+                                input
+                                input
+                                input
+                                input
+                            p.yh_fuwufei_input
+                                span 服务费扣费方式
+                                select
+                                    option 前置扣费
+                    div.yh_setting_right
+                        div.service_center
+                            p
+                                a 享分期
+                            p
+                                span 享分期最低金额
+                                input
+                                em 元
+                            p
+                                span 享分期最高金额
+                                input
+                                em 元
+                            p
+                                span 享分期快速审核费
+                                input
+                                select
+                                    option 元
+                                    option 美元
+                            p
+                                span 享分期资金通道费
+                                input
+                                em 元
+                            p
+                                span 享分期服务费率
+                                input
+                                em %/元
+                            p
+                                span 享分期利息率
+                                input
+                                em %/天
+                            p
+                                span 享分期逾期费率
+                                input
+                                em %/天
+                            p
+                                span 享分期最高逾期天数
+                                input
+                                em 天
+                            p
+                                span 享分期逾期免费期
+                                input
+                                em 天
+                            p.yh_fuwufei_input
+                                span 服务费扣费方式
+                                select
+                                    option 开
+                                    option 关
+                div.yh_tips
+                    span 快速审核费：可有两种选择，选择元是归你管金额；选择百分比则借款金额*百分比
+                    span 服务费扣费方式：前置，放款之前收取快速审核费,资金通道费与服务费。放款金额=借款金额-快速审核费-资金通道费-服务费。
+                div.yh_service_button
+                    a 保存
+            div.yh_manage_setting(v-if='Opening')
+                div.yh_Service_Opening_Settings
+                    p
+                        a 认证设置
+                    p
+                        b(v-for='(item,index) in AuthenticationSettings')
+                            label
+                                input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'input-select-'+index")
+                                span(v-html='item.name')
+                div.yh_Service_Opening_Settings
+                    p
+                        a 策略设置
+                    p 手机型号设置
+                    p
+                        b(v-for='(item,index) in PolicySettings.model')
+                            label
+                                input(:id="'select-'+index" :name="'select-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'select-'+index")
+                                span(v-html='item.name')
+                    p 用户地域设置
+                    p
+                        b(v-for='(item,index) in PolicySettings.region')
+                            label
+                                input(:id="'input-'+index" :name="'input-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'input-'+index")
+                                span(v-html='item.name')
+                    p.yh_Range
+                        s
+                            a 年龄设置
+                            a
+                                input
+                                em 岁 ——
+                                input
+                                em 岁可申请借款
+                        s
+                            a
+                                b
+                                    label
+                                        input(id="input-select-s" name="input-select-s" class="color-input-red" type="checkbox" value='index')
+                                        label(for="input-select-s")
+                                        span 芝麻分设置（设置前需要开通芝麻认证）
+                            a
+                                input
+                                em 分 ——
+                                input
+                                em 分可申请借款
+                div.yh_Service_Opening_Settings.yh_Other_settings
+                    p
+                        a 其他设置
+                    p
+                        b
+                            label
+                                input(id="input-select" name="input-select" class="color-input-red" type="checkbox" value='index')
+                                label(for="input-select")
+                                span 开启自动分配审核（开启后，已结款用户的未审核订单自动分配到原审核人员，新用户系统自动分配）
+                    p
+                        em 审核角色
+                        a 选择角色
+                        em 人员系统每日自动分配个数
+                        input
+                        i （不填代表不限制）
+
+
+                div.yh_service_button
+                    a 保存
+            div.yh_setting(v-if='Machine')
+                div.yh_active_center
+                    div.yh_setting_left
+                        div.machine_center.yh_span_width
+                            p
+                                a 反欺诈
+                            p.yh_tishi 勾选代表该条件生效
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectem-1" name="input-selectem-1" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem-1")
+                                            em 黑中介分数
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分拒单
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectey" name="input-selectey" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectey")
+                                            em 实际借款平台
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 个——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 个拒单
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectem" name="input-selectem" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem")
+                                            em 设备欺诈分
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分拒单
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectem-15" name="input-selectem-15" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem-15")
+                                            em 机构查询次数
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 次——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 次拒单
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectem-17" name="input-selectem-17" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem-17")
+                                            em 直接联系人数量
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 个——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 个拒单
+                            p
+                                span
+                                    b
+                                        label
+                                            input(id="input-selectem-16" name="input-selectem-16" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem-16")
+                                            em 圆圆评分
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分——
+                                input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                em 分拒单
+                            p
+                                span(style='width:inherit')
+                                    b
+                                        label
+                                            input(id="input-selectem-88" name="input-selectem-88" class="color-input-red" type="checkbox" value='index')
+                                            label(for="input-selectem-88")
+                                            em 手机与姓名在黑名单中拒单
+                    div.yh_setting_right
+                        div.machine_center
+                            p
+                                a 运营商
+                            p.yh_tishi 勾选代表该条件生效
+                                p
+                                    span
+                                        b
+                                            label
+                                                input(id="input-selectem15" name="input-selectem15" class="color-input-red" type="checkbox" value='index')
+                                                label(for="input-selectem15")
+                                                em 在法院黑名单中拒单
+                                p
+                                    span
+                                        b
+                                            label
+                                                input(id="input-selectey16" name="input-selectey16" class="color-input-red" type="checkbox" value='index')
+                                                label(for="input-selectey16")
+                                                em 用户姓名与运营姓名不匹配拒单
+                                p
+                                    span
+                                        b
+                                            label
+                                                input(id="input-selectem20" name="input-selectem20" class="color-input-red" type="checkbox" value='index')
+                                                label(for="input-selectem20")
+                                                em 手机号使用时长
+                                    input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                    em 月——
+                                    input(placeholder='不填代表不限' onfocus="this.placeholder=''" onblur="this.placeholder='不填代表不限'")
+                                    em 月拒单
+                div.yh_service_button
+                    a 保存

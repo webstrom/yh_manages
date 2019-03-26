@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 短信配置
+    body
+        div.yh_manage_account#manages_setup_shortmessage
+            div.yh_operation
+                a 添加
+                a 编辑
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 机构
+                            th 签名1
+                            th 签名2
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除

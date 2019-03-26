@@ -1,0 +1,77 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 业务员管理
+    body
+        div.yh_manage_account#manages_system_salesmanManagement
+            div.yh_operation
+                a(@click='addUser') 添加
+                a 修改
+                a 启用
+                a 禁止
+                a 删除
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 登录名
+                            th 用户角色
+                            th 手机号
+                            th 姓名
+                            th 机构识别码
+                            th 业务员码
+                            th 状态
+                            th 备注
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.jsbm')
+                            td(v-html='item.ywy')
+                            td(v-html='item.zt')
+                            td(v-html='item.bz')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+            div#yh_layer(style='display:none')
+                div.yh_layer
+                    div.yh_left_input
+                        p
+                            span 用户名：
+                            input
+                        p
+                            span 姓名：
+                            input
+                        p
+                            span 机构识别码：
+                            input
+                    div.yh_left_input
+                        p
+                            span 密码：
+                            input
+                        p
+                            span 手机号：
+                            input
+                        p
+                            span 业务员码：
+                            input
+                div.yh_layer_remarks
+                    span 备注：
+                    textarea

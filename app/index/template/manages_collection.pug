@@ -1,0 +1,92 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 逾期催收管理
+    body
+        div.yh_manage_account#manages_collection
+            div.yh_operation
+                a(@click='export2ExcelDownload') excel导出
+                a 加入黑名单
+                a 自定义续期
+                a 自定义还款金额
+            div.yh_search.yh_user_input.yh_manages_innerwith.yh_manages_manages_expenditureRecord
+                input(type='text' placeholder='姓名' onfocus="this.placeholder=''" onblur="this.placeholder='姓名'")
+                input(type='text' placeholder='手机' onfocus="this.placeholder=''" onblur="this.placeholder='手机'")
+                input(type='text' placeholder='识别码' onfocus="this.placeholder=''" onblur="this.placeholder='识别码'")
+                input(type='text' placeholder='渠道' onfocus="this.placeholder=''" onblur="this.placeholder='渠道'")
+                input(type='text' placeholder='用户id' onfocus="this.placeholder=''" onblur="this.placeholder='用户id'")
+                input(type='text' placeholder='审核人' onfocus="this.placeholder=''" onblur="this.placeholder='审核人'")
+                input(type='text' placeholder='催收员' onfocus="this.placeholder=''" onblur="this.placeholder='催收员'")
+                s
+                    input.laydate-icon.form-control.layer-date(type='text' placeholder='借款开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='借款开始时间'" id='manages_time')
+                    i.iconfont.icon-riqi
+                s
+                    input(type='text' placeholder='借款结束时间' onfocus="this.placeholder=''" onblur="this.placeholder='借款结束时间'" id='manages_time_1')
+                    i.iconfont.icon-riqi
+                a.yh_button
+                    i.iconfont.icon-search
+                    em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 流水号
+                            th 姓名
+                            th 手机号
+                            th 借款金额
+                            th 期限
+                            th(width='5%') 放款时间
+                            th(width='5%') 应还日期
+                            th 逾期金额
+                            th 逾期天数
+                            th 逾期罚息
+                            th 应还总额
+                            th 审核人
+                            th 识别码
+                            th 渠道
+                            th 催收员
+                            th 状态
+                            th 借款次数
+                            th 操作
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.name')
+                            td(v-html='item.sbm')
+                            td(v-html='item.dis')
+                            td(v-html='item.nl')
+                            td(v-html='item.sfz')
+                            td(v-html='item.zt')
+                            td(v-html='item.sj')
+                            td(v-html='item.dz')
+                            td(v-html='item.qd')
+                            td(v-html='item.ywy')
+                            td(v-html='item.sb')
+                            td(v-html='item.jhsj')
+                            td(v-html='item.hmd')
+                            td(v-html='item.shr')
+                            td(v-html='item.shyy')
+                            td(v-html='item.ds')
+                            td.yh_button_manage
+                                a 基础
+                                a 借款
+                                a 认证
+                                a 备注
+                                a 通话信息
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选

@@ -1,0 +1,113 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 财务对账
+    body
+        div.yh_manage_account#manages_statistics_reconciliation
+            div.yh_operation
+                a excel导出
+                a 导出机构账本
+                a(@click='buttonManages') 账户记录
+                div.yh_role_search.yh_user_right_input.yh_census_input(style='font-size: 14px')
+                    input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_2')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 机构码
+                            th 机构名称
+                            th 账户余额
+                            th 账户冻结金额
+                            th 退票总金额
+                            th 线上放款总金额
+                            th 线下放款总金额
+                            th 线上还款总金额
+                            th 线下还款总金额
+                            th 充值金额
+                            th 提现金额
+                            th 机构充值服务费
+                            th 操作
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                            td(v-html='item.jksj')
+                            td(v-html='item.je')
+                            td(v-html='item.lx')
+                            td(v-html='item.qx')
+                            td(v-html='item.jgh')
+                            td(v-html='item.cs')
+                            td(v-html='item.qd')
+                            td.yh_button_manage
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+        div#yh_manages_jump(style='display:none')
+            div.yh_manage_account
+                div.yh_alternative
+                    select
+                        option 类型
+                        option 机构提现
+                        option 机构充值
+                        option 红包提现
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time_4')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_5')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+                div.yh_manages_layer
+                    div
+                        table
+                            thead
+                                tr
+                                    th 订单编号
+                                    th 机构名称
+                                    th 机构码
+                                    th 充值金额
+                                    th 手续费
+                                    th 操作类型
+                                    th 状态
+                                    th 操作时间
+                            tbody
+                                tr(v-for='(item,index) in managesList')
+                                    td(v-html='item.bh')
+                                    td(v-html='item.name')
+                                    td(v-html='item.cd')
+                                    td(v-html='item.sj')
+                                    td(v-html='item.fw')
+                                    td(v-html='item.fy')
+                                    td(v-html='item.zt')
+                                    td(v-html='item.cz')
+                    div.yh_manages_checked
+                        div#yh_manages_lauerpages

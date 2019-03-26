@@ -1,0 +1,154 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 后台账号管理
+    body
+        div.yh_manage_account#manages_system_account
+            div.yh_operation
+                a(@click='addUser()') 添加
+                a(@click='modifyUser') 修改
+                a(@click='enaBle') 启用
+                a(@click='prohibit') 禁用
+                a(@click='deleteUser') 删除
+                a(@click='authorize') 授权
+                a(@click='hidePhone') 隐藏手机号
+                a(@click='showPhone') 显示手机号
+                a(@click='addRole') 新增渠道用户
+            div.yh_search
+                input(type='text' placeholder='用户名' onfocus="this.placeholder=''" onblur="this.placeholder='用户名'")
+                select(@click='roleClick($event)')
+                    option(value='') 请选择
+                    option(v-for='(item,index) in role' v-html='item.roleName' :value='index')
+                input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                input(type='text' placeholder='手机号' onfocus="this.placeholder=''" onblur="this.placeholder='手机号'")
+                input(type='text' placeholder='渠道' onfocus="this.placeholder=''" onblur="this.placeholder='渠道'")
+                a
+                    i.iconfont.icon-search
+                    em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 登录名
+                            th 用户角色
+                            th 手机号
+                            th 姓名
+                            th 机构编号
+                            th 渠道
+                            th 状态
+                            th 是否显示手机号
+                            th 备注
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.userId')
+                            td(v-html='item.userName')
+                            td(v-html='item.roleName')
+                            td(v-html='item.mobile')
+                            td(v-html='item.nick')
+                            td(v-html='item.bcode')
+                            td(v-html='item.channel')
+                            td
+                                s(:class='item.state === 1?"jinyong":""' v-html='item.state === 1?"禁用":item.state === 0?"启用":""')
+                            td(v-html='item.hideType === "1"?"隐藏":"显示"')
+                            td(v-html='item.userDescription')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span(@click='deleteUser') 删除
+                        span(@click='enaBle') 启用
+                        span(@click='prohibit') 禁止
+        //授权
+        div#yh_layer_3(style='display:none')
+            div.yh_manages_authorize
+                p 授权
+                div.yh_authorize
+                    table
+                        thead
+                            tr
+                                th(width='10%') 选择
+                                th 用户角色
+                                th 机构编号
+                                th 渠道名称
+                        tbody
+                            tr(v-for='(item,index) in userauthorize')
+                                td
+                                    b
+                                        label
+                                            input(:id="'input-selected-'+index" :name="'input-selected-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                            label(:for="'input-selected-'+index")
+                                td(v-html='item.roleName')
+                                td(v-html='item.bcode')
+                                td(v-html='item.channel')
+                div.yh_manages_checked(style='font-size:12px')
+                    div#yh_detailed_page_1
+                    div.yh_checked_box
+                        label
+                            input(id='input-id-authorize' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+        div#yh_layer_1(style='display:none')
+            div.yh_layer
+                div.yh_left_input
+                    p
+                        span 用户名：
+                        input(v-model='userName' :disabled='disabled')
+                    p.yh_add_role
+                        span 角色：
+                        a
+                            input(v-model='roleName' :data-value='roleId' disabled)
+                            i(@click='AddUser') 选择角色
+                    p
+                        span 手机号：
+                        input(v-model='mobile')
+                    p(v-if='quDao')
+                        span 渠道：
+                        input(v-model='channel')
+                div.yh_left_input
+                    p
+                        span 密码：
+                        input(v-model='password' type='password')
+                    p
+                        span 姓名：
+                        input(v-model='nick')
+                    p
+                        span 机构识别码：
+                        input(v-model='companyId')
+                    p(v-if='quDao') 新增用户后渠道不可修改
+            div.yh_layer_remarks
+                span 备注：
+                textarea(v-model='userDescription')
+        div#yh_manages_jump(style='display:none')
+            div.yh_manages_layer(style='margin-top:40px')
+                div
+                    table
+                        thead
+                            tr
+                                th(width='10%') 选择
+                                th(width='30%') 编号
+                                th(width='30%') 角色名称
+                                th(width='30%') 备注
+                        tbody
+                            tr(v-for='(item,index) in managesList')
+                                td
+                                    b
+                                        label.yh_postion
+                                            input(:id="'input-select-layer'+index" :name="'input-select-layer'+index" class="color-input-red" type="checkbox" v-model='checkbox' :value='index')
+                                            label(:for="'input-select-layer'+index")
+                                td(v-html='item.roleId')
+                                td(v-html='item.roleName')
+                                td(v-html='item.roleDescription')
+                    div.yh_manages_checked
+                        div#yh_manages_lauerpages(style='margin-bottom: 50px;')

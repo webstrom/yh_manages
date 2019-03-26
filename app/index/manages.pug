@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 圆汉信息
+    body
+        div.yh_manage#manages
+            div.yh_manages_meun
+                include ../common/menu.pug
+            div.yh_manages_content
+                div.yh_content_naver
+                    div.yh_manages_title
+                        em 欢迎使用圆汉后台管理系统，【超级管理员】
+                        div.yh_portrait
+                            span
+                                img(src="../../public/index/images/portrait.png")
+                            i.iconfont.icon-zhankai(@click='loginCancellation')
+                        div.yh_login_cancellation(v-if='cancellation')
+                            p
+                                i.iconfont.icon-xiaoxi
+                                span 11
+                                    em
+                            p
+                                i.iconfont.icon-mima
+                                span 修改密码
+                            p
+                                i.iconfont.icon-zhuxiaodenglu
+                                span 注销
+                    div.yh_slider#yh_slide
+                        i.iconfont.icon-xiangzuo(@click='scrollTabLeft')
+                        i.iconfont.icon-xiangyou(@click='scrollTabRight')
+                        div#yh_width_auto
+                            p
+                                a(v-for='(item,index) in userNaves' :class='item.class?"yh_meun_active":""' @click='changeClick(index)').J_menuTab
+                                    span(v-html='item.text')
+                                    i.iconfont.icon-guanbi(@click='closeCurrent($event,index)')
+                iframe(src='./manages_system_institution.html')#myiframe(frameborder='0' scrolling="auto" width='100%')

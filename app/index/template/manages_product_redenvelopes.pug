@@ -1,0 +1,121 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 红包管理
+    body
+        div.yh_manage_account#manages_product_redenvelopes
+            div.yh_operation
+                a 添加
+                a 编辑
+                a 上架
+                a 下架
+                a(@click='sendRed') 发送红包
+                a(@click='buttonManages') 发送红包明细
+                div.yh_role_search.yh_user_right_input.yh_census_input(style='font-size: 14px')
+                    input(type='text' placeholder='优惠券名称' onfocus="this.placeholder=''" onblur="this.placeholder='优惠券名称'")
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 优惠券名称
+                            th 优惠券类型
+                            th 优惠券描述
+                            th 面额
+                            th 生效方式
+                            th 生效时间
+                            th 失效方式
+                            th 失效时间或天数
+                            th 创建时间
+                            th 状态
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                            td(v-html='item.jksj')
+                            td(v-html='item.je')
+                            td(v-html='item.lx')
+                            td(v-html='item.qx')
+                            td(v-html='item.jgh')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+            div#yh_layer_send(style='display:none')
+                div.yh_red_envelopes
+                    p
+                        span 是否发送短信：
+                        label
+                            input(type='radio' name='radio' checked)
+                            em 是
+                        label
+                            input(type='radio' name='radio')
+                            em 否
+                    p
+                        span 手机号码：
+                    textarea
+                    p
+                        i 提示：支持发送多个手机，每个手机号码结尾回车键换行 不能有其他特殊符号。
+        div#yh_manages_jump(style='display:none')
+            div.yh_manage_account
+                div.yh_alternative
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time_4')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_5')
+                        i.iconfont.icon-riqi
+                    input(type='text' placeholder='用户id' onfocus="this.placeholder=''" onblur="this.placeholder='用户id'")
+                    select
+                        option 状态
+                        option 机构提现
+                        option 机构充值
+                        option 红包提现
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+                div.yh_manages_layer
+                    p 使用红包数量：4
+                    div
+                        table
+                            thead
+                                tr
+                                    th 发送流水号
+                                    th 红包名字
+                                    th 红包号
+                                    th 红包类型
+                                    th 面额(元)
+                                    th 用户id
+                                    th 发送时间
+                                    th 状态
+                            tbody
+                                tr(v-for='(item,index) in managesList')
+                                    td(v-html='item.bh')
+                                    td(v-html='item.name')
+                                    td(v-html='item.cd')
+                                    td(v-html='item.lx')
+                                    td(v-html='item.me')
+                                    td(v-html='item.id')
+                                    td(v-html='item.sj')
+                                    td(v-html='item.zt')
+                        div.yh_manages_checked
+                            div#yh_manages_lauerpages

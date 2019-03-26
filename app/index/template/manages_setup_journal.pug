@@ -1,0 +1,59 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 日志管理
+    body
+        div.yh_manage_account#manages_steup_journal
+            div.yh_operation
+                a 删除
+                a 运维日志下载
+                div.yh_role_search.yh_user_right_input(style='font-size: 14px')
+                    input(type='text' placeholder='操作人' onfocus="this.placeholder=''" onblur="this.placeholder='操作人'")
+                    input(type='text' placeholder='操作类型' onfocus="this.placeholder=''" onblur="this.placeholder='操作类型'")
+                    input(type='text' placeholder='所属模块' onfocus="this.placeholder=''" onblur="this.placeholder='所属模块'")
+                    input(type='text' placeholder='手机号' onfocus="this.placeholder=''" onblur="this.placeholder='手机号'")
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='结束时间' onfocus="this.placeholder=''" onblur="this.placeholder='结束时间'" id='manages_time_2')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 操作人
+                            th 操作时间
+                            th 操作类型
+                            th 地址
+                            th 操作模块
+                            th 日志详情
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                            td(v-html='item.jksj')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除

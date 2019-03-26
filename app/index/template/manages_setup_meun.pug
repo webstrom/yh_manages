@@ -1,0 +1,89 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 菜单管理
+    body
+        div.yh_manage_account#manages_setup_meun
+            div.yh_operation
+                a 添加
+                a 修改
+                a 删除
+                a(@click='buttonManages') 按钮管理
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 菜单名称
+                            th 包含按钮
+                            th 链接地址
+                            th 顺序
+                            th 备注
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+        div#yh_manages_jump(style='display:none')
+            p.yh_button_layer
+                a(@click='addButton') 添加
+                a 修改
+                a 删除
+            div.yh_manages_layer
+                div
+                    table
+                        thead
+                            tr
+                                th(width='5%') 选择
+                                th 按钮编号
+                                th 按钮名称
+                                th 所属菜单
+                        tbody
+                            tr(v-for='(item,index) in managesList')
+                                td
+                                    b
+                                        label.yh_postion
+                                            input(:id="'input-select-layer'+index" :name="'input-select-layer'+index" class="color-input-red" type="checkbox" v-model='checkbox' :value='index')
+                                            label(:for="'input-select-layer'+index")
+                                td(v-html='item.bh')
+                                td(v-html='item.name')
+                                td(v-html='item.cd')
+                    div.yh_manages_checked
+                        div#yh_manages_lauerpages(style='margin-bottom: 50px;')
+                        //div.yh_checked_box
+                        //    label
+                        //        input(id='input-manages-id' class="color-input-red" type="checkbox" name="input-manages-id" value="" v-model='checkeds' @click='Allchecked')
+                        //        label(for="input-manages-id")
+                        //        span 全选
+                        //    span 删除
+            div#yh_layer_4(style='display:none')
+                div.yh_manages_recharge
+                    div.yh_detailed
+                        p
+                            span 所属菜单：
+                            input
+                        p
+                            span 按钮名称：
+                            input
+                        p
+                            span 按钮id：
+                            input

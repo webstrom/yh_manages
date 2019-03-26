@@ -1,0 +1,87 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 服务使用记录
+    body
+        div.yh_manage_account#manages_statistics_rsageRecord
+            include ../../common/record.pug
+            div.yh_operation
+                a excel导出
+                a(@click='buttonManages') 查看详细
+                div.yh_role_search.yh_user_right_input
+                    input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                    input(type='text' placeholder='姓名' onfocus="this.placeholder=''" onblur="this.placeholder='姓名'")
+                    input(type='text' placeholder='用户id' onfocus="this.placeholder=''" onblur="this.placeholder='用户id'")
+                    input(type='text' placeholder='手机号' onfocus="this.placeholder=''" onblur="this.placeholder='手机号'")
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_1')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 机构码
+                            th 使用机构码
+                            th 使用时间
+                            th 用户id
+                            th 姓名
+                            th 手机号
+                            th 计费
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.name')
+                            td(v-html='item.sbm')
+                            td(v-html='item.dis')
+                            td(v-html='item.nl')
+                            td(v-html='item.sfz')
+                            td(v-html='item.zt')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+        div#yh_manages_jump(style='display:none')
+            div.yh_manage_account
+                div.yh_manages_layer(style='display:none')
+                    div
+                        table
+                            thead
+                                tr
+                                    th 名字
+                                    th 用户id
+                                    th 手机号
+                                    th 使用时间
+                                    th 服务名
+                                    th 费用
+                            tbody
+                                tr(v-for='(item,index) in managesList')
+                                    td(v-html='item.bh')
+                                    td(v-html='item.name')
+                                    td(v-html='item.cd')
+                                    td(v-html='item.sj')
+                                    td(v-html='item.fw')
+                                    td(v-html='item.fy')
+                        div.yh_manages_checked
+                            div#yh_manages_lauerpages
+                div.yh_record_img
+                    img(src="../../../public/index/images/record.png")
+                    span 暂无相关记录

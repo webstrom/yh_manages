@@ -1,0 +1,175 @@
+@import "color";
+@import "variable";
+@import "style";
+
+//适配
+@import "adaptation";
+
+input:-webkit-autofill , textarea:-webkit-autofill, select:-webkit-autofill {
+  -webkit-text-fill-color: #ededed !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent  inset !important;
+  background-color:transparent;
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间
+}
+input {
+  background-color:transparent;
+}
+
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin:0;
+  padding:0;
+  font-family: "微软雅黑";
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+//body,button,input,select,textarea {
+//  font:12px \5b8b\4f53,arial,sans-serif;
+//}
+input,select,textarea {
+  font-size:100%;
+}
+/* 去掉 table cell 的边距并让其边重合 */
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+/* ie bug：th 不继承 text-align */
+th {
+  text-align:inherit;
+}
+/* 去除默认边框 */
+fieldset,img {
+  border:none;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display:block;
+}
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym {
+  border:none;
+  font-variant:normal;
+}
+/* 一致的 del 样式 */
+del {
+  text-decoration:line-through;
+}
+address,caption,cite,code,dfn,em,th,var {
+  font-style:normal;
+  font-weight:500;
+}
+/* 去掉列表前的标识，li 会继承 */
+ol,ul,li {
+  list-style:none;
+  padding: 0;
+  margin: 0;
+}
+/* 对齐是排版最重要的因素，别让什么都居中 */
+caption,th {
+  text-align:left;
+}
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+  font-size:100%;
+  font-weight:500;
+}
+q:before,q:after {
+  content:'';
+}
+/* 统一上标和下标 */
+sub,sup {
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline;
+}
+sup {
+  top:-0.5em;
+}
+sub {
+  bottom:-0.25em;
+}
+/* 让链接在 hover 状态下显示下划线 */
+//a:hover {
+//  text-decoration:underline;
+//}
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+  text-decoration:none;
+}
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus,*:focus {
+  outline:none;
+}
+/* 清除浮动 */
+.clearfix:before,.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
+  overflow:hidden;
+}
+.clearfix {
+  zoom:1; /* for ie6 & ie7 */
+}
+.clear {
+  clear:both;
+  display:block;
+  font-size:0;
+  height:0;
+  line-height:0;
+  overflow:hidden;
+}
+
+/* 设置浮动，减少浮动带来的 bug */
+.fl,.fr {
+  display:inline;
+}
+.fl {
+  float:left;
+}
+.fr {
+  float:right;
+}
+input::-webkit-input-placeholder{
+  color:#999999;
+}
+
+/*lable标签的大小、位置、背景颜色更改，在css选择时，“+”代表相邻元素，即当前元素的下一元素*/
+.color-input-red +label{
+  display: block;
+  width: 16px;
+  height: 16px;
+  @extend %cursor;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translate(-50%,-50%);
+  border: 1px solid #d3dbe7;
+  border-radius: 2px;
+  background: #FFFFFF;
+}
+
+/*当input框为选中状态时，lable标签的样式，其中在css选择时，“：”表示当前input框的值，即checked；
+      该部分主要对显示的“对号”的大限居中方式，显示颜色进行了设置*/
+.color-input-red:checked +label::before{
+  display: block;
+  content: "\2714";
+  text-align: center;
+  font-size: 14px;
+  width: 16px;
+  height: 16px;
+  color: $color_FFFFFF;
+  line-height: 16px;
+  background: #0a6cd6;
+}
+
+input[type=checkbox]{
+  visibility: hidden;
+}

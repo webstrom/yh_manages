@@ -1,0 +1,2427 @@
+@import url(//at.alicdn.com/t/font_1051275_h3fzame4b7.css);
+@import "../../common/common";
+/*颜色*/
+$meun: #081120; //菜单背景
+$meun_login: #4A8BF5;
+$back_menu: #0E1E38;
+$back_content: #F1F6FC; //右侧背景颜色
+%iconfont_size {
+  font-size: 30px;
+}
+
+%color_white {
+  color: $color_FFFFFF;
+}
+
+%cursor {
+  cursor: pointer;
+}
+
+%margin_auto {
+  margin: auto;
+}
+
+%box-shadow {
+  box-shadow: 0 0 20px rgba(181, 187, 184, .35);
+}
+
+.line-content {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+
+.yh_manage {
+  min-width: 1800px;
+  //min-width: 1500px;
+  //background: $back_content;
+  //左侧菜单
+  .yh_manages_meun {
+    @extend %position-fixed;
+    background: $meun;
+    width: 300px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10000;
+    overflow: auto;
+  }
+
+  .yh_manage_login {
+    .yh_login {
+      background: $meun_login;
+
+      span {
+        @extend %display-block;
+        @extend %text-align-center;
+        @extend %margin_auto;
+        width: 50px;
+        height: 50px;
+
+        img {
+          @extend %width-100;
+        }
+
+        padding-top: 15px;
+        padding-bottom: 5px;
+      }
+
+      a {
+        @extend %display-block;
+        @extend %text-align-center;
+        @extend %color_white;
+        font-size: 16px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .yh_meun_navigation {
+    div {
+      padding: 12px 30px;
+      @extend .line-content;
+      @extend %position-relative;
+
+      &.yh_meun {
+        background: $back_menu;
+
+        i.icon-top {
+          color: #1C5185;
+        }
+      }
+
+      &:hover {
+        background: $back_menu;
+
+        i.icon-down {
+          color: #1C5185;
+        }
+      }
+
+      @extend %cursor;
+
+      em {
+        @extend %color_white;
+        font-size: 16px;
+        margin: 0 10px;
+      }
+
+      i {
+        @extend %iconfont_size;
+        @extend %color_white;
+      }
+
+      i.icon-top, i.icon-down {
+        font-size: 20px;
+        color: #5F6164;
+        @extend %position-absolute;
+        right: 22px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    ul {
+      padding-top: 10px;
+
+      li {
+        padding: 5px 0;
+        @extend %cursor;
+        padding-left: 80px;
+        text-align: left;
+
+        &:hover {
+          a {
+            background: $meun_login;
+          }
+        }
+
+        a {
+          display: inline-block;
+          text-align: left;
+          @extend %color_white;
+          @extend %cursor;
+          padding: 6px 20px;
+          border-radius: 50px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  //右侧显示内容
+  .yh_manages_content {
+    background: $back_content;
+    margin: 10px;
+    margin-left: 310px;
+    @extend %box-shadow;
+    //padding-top: 176px;
+    .yh_content_naver {
+      //@extend %position-fixed;
+      //top:0;
+      //left: 310px;
+      background: $back_content;
+
+      .yh_manages_title {
+        padding: 33px 30px;
+        font-size: 20px;
+        @extend %position-relative;
+
+        em {
+          color: $meun_login;
+        }
+
+        .yh_portrait {
+          @extend %position-absolute;
+          right: -50px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          @extend .line-content;
+
+          i {
+            margin-left: 15px;
+            color: $meun_login;
+            @extend %cursor;
+          }
+        }
+
+        .yh_login_cancellation {
+          @extend %position-absolute;
+          top: 152px;
+          right: -62px;
+          z-index: 100;
+          transform: translate(-50%, -50%);
+          background: $color_FFFFFF;
+          width: 140px;
+          border: 1px solid #f1f1f1;
+          @extend %box-shadow;
+
+          p {
+            padding: 10px 15px;
+            @extend %overflow-hidden;
+            border-bottom: 1px solid #f1f1f1;
+            border-top: 1px solid #f1f1f1;
+            @extend %cursor;
+            //@extend .line-content;
+            line-height: 24px;
+
+            i {
+              float: left;
+              @extend %display-inline-block;
+              font-size: 20px;
+            }
+
+            span {
+              float: right;
+              @extend %display-inline-block;
+              font-size: 14px;
+              @extend %position-relative;
+            }
+
+            em {
+              display: inline-block;
+              @extend %position-absolute;
+              right: -6px;
+              top: 0;
+              width: 6px;
+              height: 6px;
+              z-index: 200;
+              background: red;
+              border-radius: 6px;
+            }
+
+            &:hover {
+              background: #F7FAFF;
+            }
+          }
+        }
+      }
+
+      .yh_slider {
+        div {
+          @extend %overflow-hidden;
+          //@extend %position-relative;
+          height: 39px;
+          //p{
+          //  position: absolute;
+          //  left: 0;
+          //  top: 50%;
+          //  transform: translate(0,-50%);
+          //}
+        }
+
+        @extend %box-shadow;
+        @extend %position-relative;
+        background: $color_FFFFFF;
+        margin: 10px;
+        padding: 20px 50px;
+        margin-bottom: 0;
+
+        .icon-xiangzuo {
+          @extend %position-absolute;
+          left: 30px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 30px;
+          color: #7E8083;
+          display: inline-block;
+        }
+
+        .icon-xiangyou {
+          @extend %position-absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 30px;
+          color: #7E8083;
+          display: inline-block;
+        }
+
+        a {
+          @extend %display-inline-block;
+          @extend %position-relative;
+          border: 1px solid #f1f1f1;
+          padding: 8px 15px;
+          padding-right: 30px;
+          border-radius: 50px;
+          color: #7E8083;
+          font-size: 14px;
+          @extend %cursor;
+
+          &:hover {
+            background: #f1f1f1;
+            color: #666666;
+          }
+
+          span {
+            @extend %display-inline-block;
+          }
+
+          i {
+            @extend %position-absolute;
+            @extend %display-inline-block;
+            right: 5px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+
+            &:hover {
+              color: #bf0303;
+            }
+          }
+
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+}
+
+.yh_meun_active {
+  background: $meun_login !important;
+  color: $color_FFFFFF !important;
+}
+
+//后台账号管理  开始
+.yh_manage_account {
+  color: #7E8083;
+  padding: 10px;
+
+  .yh_operation {
+    padding: 20px 60px;
+    background: $color_FFFFFF;
+    @extend %box-shadow;
+    @extend %position-relative;
+
+    a {
+      @extend %display-inline-block;
+      margin-right: 30px;
+      color: $meun_login;
+      font-size: 15px;
+      @extend %cursor;
+      line-height: 38px;
+    }
+
+    .yh_role_search {
+      @extend %position-absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      input {
+        border: 1px solid #f1f1f1;
+        width: 180px;
+        line-height: 36px;
+        height: 36px;
+        padding: 0 10px;
+        margin-right: 20px;
+      }
+
+      a {
+        color: $color_FFFFFF;
+        background: $meun_login;
+        border-radius: 20px;
+        padding: 0 20px;
+
+        i {
+          margin-right: 10px;
+        }
+
+        @extend %cursor;
+      }
+    }
+  }
+
+  .yh_search {
+    padding: 20px 3%;
+    background: $color_FFFFFF;
+    @extend %box-shadow;
+    margin-top: 10px;
+
+    input {
+      border: 1px solid #f1f1f1;
+      width: 180px;
+      line-height: 36px;
+      height: 36px;
+      padding: 0 10px;
+      margin-right: 20px;
+    }
+
+    select {
+      width: 120px;
+      height: 38px;
+      border: 1px solid #f1f1f1;
+      margin-right: 20px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none; /*去掉下拉箭头*/
+      padding: 0 10px;
+      @extend %position-relative;
+      background: url('../images/drop-down.png') no-repeat right center;
+      background-size: 20%;
+      color: #999999;
+    }
+
+    a {
+      color: $color_FFFFFF;
+      background: $meun_login;
+      border-radius: 20px;
+      padding: 8px 20px;
+      margin-left: 20px;
+
+      i {
+        margin-right: 10px;
+      }
+
+      @extend %cursor;
+    }
+  }
+
+  .yh_table {
+    margin-top: 10px;
+    background: $color_FFFFFF;
+    @extend %box-shadow;
+    padding-bottom: 50px;
+    font-size: 12px;
+
+    table {
+      width: 100%;
+
+      b {
+        @extend %position-relative;
+      }
+
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background: #F7FAFF;
+          }
+        }
+      }
+
+      tr {
+        td, th {
+          @extend %text-align-center;
+          border: none;
+          height: 50px;
+        }
+
+        td {
+          s {
+            color: #61A911;
+          }
+
+          b {
+            color: red;
+          }
+        }
+
+        .yh_button_manage {
+          a {
+            color: $meun_login;
+            @extend %display-inline-block;
+            margin: 0 5px;
+            text-decoration: underline;
+            @extend %cursor;
+          }
+        }
+      }
+    }
+  }
+}
+
+.yh_manages_checked {
+  @extend %position-relative;
+
+  .yh_checked_box {
+    @extend %position-absolute;
+    left: 26px;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    span {
+      padding: 0 10px;
+      @extend %cursor;
+    }
+  }
+
+  .layui-laypage-manages {
+    @extend %text-align-center;
+    height: 33px;
+    margin-top: 50px;
+
+    a, span {
+      padding: 5px 15px;
+      border: 1px solid $meun_login;
+      color: $meun_login;
+      margin: 0 5px;
+      border-radius: 2px;
+
+      &.layui-laypage-curr {
+        background: $meun_login;
+        color: $color_FFFFFF;
+      }
+
+      &.layui-laypage-count, &.layui-laypage-skip {
+        border: none;
+      }
+
+      &.layui-laypage-limits {
+        border: none;
+
+        select {
+          padding: 4px 0;
+          color: $meun_login;
+          border: 1px solid $meun_login;
+          border-radius: 2px;
+        }
+      }
+
+      &.layui-laypage-skip {
+        input {
+          border: 1px solid $meun_login;
+          width: 40px;
+          height: 24px;
+          @extend %text-align-center;
+          border-radius: 2px;
+          margin: 0 5px;
+          color: $meun_login;
+        }
+
+        button {
+          background: $meun_login;
+          color: $color_FFFFFF;
+          padding: 5px 20px;
+          border-radius: 2px;
+          border: none;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+.yh_user_right_input {
+  input {
+    width: 90px !important;
+    margin-right: 10px !important;
+  }
+
+  select {
+    border: 1px solid #f1f1f1;
+    height: 36px;
+    color: #999999;
+    width: 90px !important;
+    margin-right: 10px !important;
+  }
+
+  s {
+    @extend %display-inline-block;
+    @extend %position-relative;
+
+    i {
+      @extend %position-absolute;
+      right: 10px !important;
+      top: 50% !important;
+      font-size: 22px !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    input {
+      width: 90px !important;
+      padding-right: 40px !important;
+      @extend %overflow-hidden;
+    }
+  }
+}
+
+.yh_user_input {
+  input {
+    width: 6% !important;
+    margin-right: .5% !important;
+  }
+
+  select {
+    width: 6% !important;
+    margin-right: .5% !important;
+  }
+
+  s {
+    @extend %display-inline-block;
+    @extend %position-relative;
+    width: 11% !important;
+    padding-right: .5% !important;
+
+    i {
+      @extend %position-absolute;
+      right: 0 !important;
+      top: 50% !important;
+      font-size: 22px !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    input {
+      width: 75% !important;
+      padding: 0 5% !important;
+      padding-right: 20% !important;
+      @extend %overflow-hidden;
+    }
+  }
+}
+
+.yh_manages_innerwith {
+  a {
+    width: 8% !important;
+    padding: 0 !important;
+    //margin-left: 0 !important;
+    &.yh_button {
+      width: initial !important;
+      padding: 0 20px !important;
+      margin-left: 2% !important;
+    }
+  }
+
+  .yh_role_search {
+    width: 88% !important;
+
+    input {
+      width: 6% !important;
+      margin-right: .5% !important;
+      padding: 0 .5% !important;
+    }
+
+    s {
+      width: 9% !important;
+      margin-right: .5%;
+
+      input {
+        padding: 0 10% !important;
+        width: 70% !important;
+        padding-right: 20% !important;
+      }
+
+      i {
+        right: -10px !important;
+      }
+    }
+  }
+}
+
+.yh_census {
+  margin-bottom: 10px;
+  @extend %overflow-hidden;
+  height: 12.7vw;
+  @extend %box-shadow;
+}
+
+.yh_census_number {
+  background: $color_FFFFFF;
+  @extend %box-shadow;
+  border-radius: 2px;
+  padding: 30px 2%;
+  width: 57%;
+  margin-right: 1%;
+  float: left;
+
+  a {
+    @extend %display-inline-block;
+    width: 15%;
+    height: 9vw;
+    color: $color_FFFFFF;
+    margin: 0 2.5%;
+
+    span {
+      margin-top: 2.7vw;
+      font-size: 26px;
+    }
+
+    span, em {
+      @extend %display-block;
+      @extend %text-align-center;
+    }
+
+    &:nth-child(1) {
+      background: url("../images/qudao.png") center no-repeat;
+      background-size: 100%;
+    }
+
+    &:nth-child(2) {
+      background: url("../images/zhuce.png") center no-repeat;
+      background-size: 100%;
+    }
+
+    &:nth-child(3) {
+      background: url("../images/shenqin.png") center no-repeat;
+      background-size: 100%;
+    }
+
+    &:nth-child(4) {
+      background: url("../images/shenhe.png") center no-repeat;
+      background-size: 100%;
+    }
+
+    &:nth-child(5) {
+      background: url("../images/fangkuan.png") center no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+
+.yh_census_conversion {
+  background: $color_FFFFFF;
+  @extend %box-shadow;
+  border-radius: 2px;
+  width: 38%;
+  float: left;
+
+  p {
+    @extend %text-align-center;
+    line-height: 60px;
+    margin: 10px 0;
+
+    a {
+      padding-bottom: 5px;
+      color: $meun_login;
+      font-size: 24px;
+      border-bottom: 2px solid $meun_login;
+    }
+  }
+
+  div {
+    a {
+      width: 29%;
+      margin: 0 2.1%;
+      margin-top: 0.9vw;
+      padding-bottom: 2.7vw;
+      @extend %display-inline-block;
+
+      span {
+        font-size: 26px;
+      }
+
+      em, span {
+        @extend %display-block;
+        @extend %text-align-center;
+      }
+    }
+  }
+}
+
+.yh_census_input {
+  input, s {
+    width: 210px !important;
+  }
+
+  a {
+    margin-left: 20px !important;
+  }
+
+  s {
+    margin-right: 10px !important;
+
+    input {
+      width: 70% !important;
+      padding: 0 10% !important;
+      padding-right: 20% !important;
+    }
+
+    i {
+      right: 0 !important;
+    }
+  }
+}
+
+.yh_pending_loan {
+  @extend %box-shadow;
+  margin-bottom: 10px;
+
+  a {
+    width: 32.8%;
+    @extend %display-inline-block;
+    height: 13.4vw;
+    background: #C0FF3E;
+
+    &:nth-child(1) {
+      background: url("../images/balance.png") center no-repeat;
+      background-size: 102%;
+    }
+
+    &:nth-child(2) {
+      background: url("../images/total_balance.png") center no-repeat;
+      background-size: 102%;
+      margin: 0 .8%;
+    }
+
+    &:nth-child(3) {
+      background: url("../images/frozen_balance.png") center no-repeat;
+      background-size: 102%;
+    }
+
+    span, em {
+      @extend %display-block;
+      padding-left: 4.5vw;
+      color: $color_FFFFFF;
+    }
+
+    span {
+      font-size: 50px;
+      margin-top: 4vw;
+    }
+
+    em {
+      font-size: 22px;
+    }
+  }
+}
+
+.yh_statistics {
+  @extend %box-shadow;
+  margin-bottom: 10px;
+  @extend %overflow-hidden;
+
+  .yh_chart {
+    width: 49.5%;
+    float: left;
+
+    a {
+      width: 49%;
+      @extend %display-inline-block;
+      height: 13.4vw;
+      background: #C0FF3E;
+
+      &:nth-child(1) {
+        background: url("../images/zhanghu.png") center no-repeat;
+        background-size: 103%;
+        margin-right: 2%;
+      }
+
+      &:nth-child(2) {
+        background: url("../images/dongjie.png") center no-repeat;
+        background-size: 103%;
+      }
+
+      span, em {
+        @extend %display-block;
+        padding-left: 2.5vw;
+        color: $color_FFFFFF;
+      }
+
+      span {
+        font-size: 40px;
+        margin-top: 4vw;
+      }
+
+      em {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .yh_proces {
+    width: 45.5%;
+    float: right;
+    padding: 20px 2%;
+    background: $color_FFFFFF;
+    border-radius: 2px;
+
+    p {
+      margin: 24.5px 0;
+
+      a {
+        @extend %display-inline-block;
+        width: 33.3333333%;
+        @extend %text-align-center;
+
+        span {
+          @extend %display-block;
+          color: #FA8378;
+          font-size: 24px;
+          font-family: DIN-Medium;
+          font-weight: 500;
+          line-height: 29px;
+        }
+
+        em {
+          @extend %display-block;
+          font-size: 14px;
+          font-family: PingFangSC-Medium;
+          font-weight: 500;
+          color: rgba(102, 102, 102, 1);
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.yh_record {
+  @extend %box-shadow;
+  margin-bottom: 10px;
+  @extend %overflow-hidden;
+
+  .yh_chart {
+    width: 49.5%;
+    float: left;
+
+    a {
+      width: 49%;
+      @extend %display-inline-block;
+      height: 13.4vw;
+      background: #C0FF3E;
+
+      &:nth-child(1) {
+        background: url("../images/zhanghu.png") center no-repeat;
+        background-size: 103%;
+        margin-right: 2%;
+      }
+
+      &:nth-child(2) {
+        background: url("../images/daihuangkuan.png") center no-repeat;
+        background-size: 103%;
+      }
+
+      span, em {
+        @extend %display-block;
+        padding-left: 2.5vw;
+        color: $color_FFFFFF;
+      }
+
+      span {
+        font-size: 40px;
+        margin-top: 4vw;
+      }
+
+      em {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .yh_proces {
+    width: 45.5%;
+    float: right;
+    padding: 20px 2%;
+    background: $color_FFFFFF;
+    border-radius: 2px;
+
+    p {
+      margin: 24.5px 0;
+
+      a {
+        @extend %display-inline-block;
+        width: 33.3333333%;
+        @extend %text-align-center;
+
+        span {
+          @extend %display-block;
+          color: #FA8378;
+          font-size: 24px;
+          font-family: DIN-Medium;
+          font-weight: 500;
+          line-height: 29px;
+        }
+
+        em {
+          @extend %display-block;
+          font-size: 14px;
+          font-family: PingFangSC-Medium;
+          font-weight: 500;
+          color: rgba(102, 102, 102, 1);
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.yh_manages_repayment {
+  @extend %box-shadow;
+  margin-bottom: 10px;
+
+  a {
+    width: 24.25%;
+    @extend %display-inline-block;
+    height: 13.4vw;
+    background: #C0FF3E;
+    margin-right: 1%;
+
+    &:nth-child(1) {
+      background: url("../images/zhanghu.png") center no-repeat;
+      background-size: 103%;
+    }
+
+    &:nth-child(2) {
+      background: url("../images/dongjie.png") center no-repeat;
+      background-size: 103%;
+    }
+
+    &:nth-child(3) {
+      background: url("../images/daihuangkuan.png") center no-repeat;
+      background-size: 103%;
+    }
+
+    &:nth-child(4) {
+      background: url("../images/huangkuan.png") center no-repeat;
+      background-size: 103%;
+      margin: 0;
+    }
+
+    span, em {
+      @extend %display-block;
+      padding-left: 2.5vw;
+      color: $color_FFFFFF;
+    }
+
+    span {
+      font-size: 40px;
+      margin-top: 4vw;
+    }
+
+    em {
+      font-size: 22px;
+    }
+  }
+}
+
+.yh_manages_manages_expenditureRecord {
+  s {
+    width: 9% !important;
+  }
+
+  a.yh_button {
+    padding: 8px 20px !important;
+  }
+}
+
+.yh_revenue_records {
+  @extend %box-shadow;
+  margin-bottom: 10px;
+
+  a {
+    width: 49.6%;
+    @extend %display-inline-block;
+    height: 13.8vw;
+    background: #C0FF3E;
+
+    &:nth-child(1) {
+      background: url("../images/user_balance.png") center no-repeat;
+      background-size: 102%;
+    }
+
+    &:nth-child(2) {
+      background: url("../images/rozen_balance.png") center no-repeat;
+      background-size: 102%;
+      margin-left: .8%;
+    }
+
+    span, em {
+      @extend %display-block;
+      padding-left: 4.5vw;
+      color: $color_FFFFFF;
+    }
+
+    span {
+      font-size: 50px;
+      margin-top: 4vw;
+    }
+
+    em {
+      font-size: 22px;
+    }
+  }
+}
+
+.yh_manages_revenue_records {
+  input {
+    width: 65px !important;
+  }
+
+  select {
+    border: 1px solid #f1f1f1;
+    height: 36px;
+    color: #999999;
+  }
+}
+
+.yh_manages_serviceSettings {
+  @extend %box-shadow;
+  background: $color_FFFFFF;
+  padding: 20px 60px;
+
+  a {
+    font-size: 18px;
+    color: #7E8083;
+    margin-right: 40px;
+    @extend %cursor;
+
+    &:hover {
+      color: $meun_login;
+    }
+
+    &.yh_active_service {
+      color: $meun_login;
+    }
+  }
+}
+
+.yh_setting, .yh_manage_setting {
+  @extend %box-shadow;
+  background: $color_FFFFFF;
+  padding: 20px 60px;
+  margin-top: 10px;
+}
+
+.yh_setting {
+  .yh_active_center {
+    @extend %overflow-hidden;
+
+    .yh_setting_left {
+      width: 50%;
+      float: left;
+    }
+
+    .yh_setting_right {
+      width: 50%;
+      float: left;
+    }
+
+    .service_center {
+      p {
+        margin: 10px 0;
+
+        &:first-child {
+          @extend %text-align-center;
+          margin: 30px 0;
+        }
+
+        a {
+          @extend %display-inline-block;
+          margin: auto;
+          padding: 8px 30px;
+          background: $meun_login;
+          color: $color_FFFFFF;
+          @extend %cursor;
+          border-radius: 50px;
+        }
+
+        span {
+          width: 40%;
+          text-align: right;
+          @extend %display-inline-block;
+        }
+
+        input {
+          width: 160px;
+          border: 1px solid #f1f1f1;
+          padding: 0 5px;
+          height: 35px;
+          border-radius: 2px;
+          margin: 0 10px;
+          background: #F9FAFC;
+        }
+
+        &.yh_balance {
+          input {
+            width: 5%;
+          }
+        }
+
+        select {
+          height: 35px;
+          border: 1px solid #f1f1f1;
+          color: #999999;
+        }
+
+        &.yh_fuwufei_input {
+          select {
+            width: 100px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .yh_tips {
+    margin: 40px 0;
+
+    span {
+      @extend %display-block;
+      padding: 0 12%;
+    }
+  }
+}
+
+.yh_service_button {
+  @extend %text-align-center;
+  margin-bottom: 100px;
+  margin-top: 80px;
+  @extend %cursor;
+
+  a {
+    padding: 10px 150px;
+    background: $meun_login;
+    color: $color_FFFFFF;
+    font-size: 18px;
+    border-radius: 5px;
+
+    &:hover {
+      background: $meun_login*1.1%;
+    }
+  }
+}
+
+.yh_Service_Opening_Settings {
+  p {
+    label label {
+      background: #F0F1F2;
+      left: 9px;
+    }
+
+    padding-left: 20px;
+
+    &:first-child {
+      margin: 10px 0;
+      margin-top: 30px;
+      padding-left: 0;
+
+      a {
+        @extend %display-inline-block;
+        padding: 8px 30px;
+        background: $meun_login;
+        color: $color_FFFFFF;
+        @extend %cursor;
+        border-radius: 50px;
+      }
+    }
+
+    b {
+      @extend %display-inline-block;
+      font-weight: inherit;
+      @extend %position-relative;
+      margin: 10px 0;
+      margin-right: 30px;
+      font-size: 14px;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+
+    input {
+      background: #f0f1f2;
+      border: 1px solid #d3dbe7;
+    }
+
+    &.yh_Range {
+      s {
+        @extend %display-inline-block;
+        margin-right: 100px;
+
+        input {
+          width: 80px;
+          height: 35px;
+          border-radius: 30px;
+          border: 1px solid #f1f1f1;
+          @extend %text-align-center;
+          margin: 0 5px;
+        }
+
+        a {
+          @extend %display-block;
+          margin: 5px 0;
+
+          b {
+            input {
+              height: inherit;
+              width: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.yh_Other_settings {
+  p {
+    &:last-child {
+      a {
+        padding: 5px 15px;
+        border: 1px solid #f1f1f1;
+        @extend %display-inline-block;
+        @extend %cursor;
+        margin: 0 5px;
+        border-radius: 20px;
+      }
+
+      input {
+        width: 50px;
+        height: 30px;
+        border: 1px solid #f1f1f1;
+        @extend %text-align-center;
+        margin: 0 5px;
+        border-radius: 20px;
+      }
+
+      i {
+        color: red;
+      }
+    }
+  }
+}
+
+.machine_center {
+  p {
+    label label {
+      background: #F0F1F2;
+      left: 9px;
+    }
+
+    margin: 10px 0;
+
+    &.yh_tishi {
+      color: #CDCED1;
+      padding-left: 14%;
+    }
+
+    &:first-child {
+      padding-left: 14%;
+
+      a {
+        @extend %display-inline-block;
+        padding: 8px 30px;
+        background: $meun_login;
+        color: $color_FFFFFF;
+        @extend %cursor;
+        border-radius: 50px;
+      }
+    }
+
+    b {
+      @extend %position-relative;
+      @extend %display-inline-block;
+    }
+
+    input {
+      width: 100px;
+      border: 1px solid #f1f1f1;
+      height: 35px;
+      margin: 0 10px;
+      padding: 0 10px;
+      background: #F0F1F2;
+    }
+
+    span {
+      @extend %display-inline-block;
+      padding-left: 14%;
+
+      input {
+        width: inherit !important;
+        height: inherit !important;
+        margin: 0;
+      }
+
+      em {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.yh_span_width {
+  span {
+    width: 150px;
+  }
+}
+
+.yh_manages_login_home {
+  background: url("../images/login_background.png") 100% no-repeat;
+  background-size: 100% 100%;
+  @extend %position-fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .yh_login_title {
+    @extend %position-fixed;
+    width: 94%;
+    padding: 1% 3%;
+    line-height: 50px;
+    border-bottom: 3px solid #2C4860;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    min-width: 1200px;
+    @extend %overflow-hidden;
+
+    span {
+      color: $color_FFFFFF;
+      @extend .line-content;
+      letter-spacing: 8px;
+
+      &:first-child {
+        float: left;
+
+        i {
+          font-size: 24px;
+          color: $color_FFFFFF;
+          margin-left: 20px;
+        }
+      }
+
+      &:last-child {
+        float: right;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .yh_login_input {
+    @extend %position-fixed;
+    width: 24%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $color_FFFFFF;
+    padding: 50px;
+    border-radius: 5px;
+    z-index: 100;
+
+    p {
+      color: #0D3C73;
+      font-size: 24px;
+      margin-bottom: 7%;
+    }
+
+    div {
+      input {
+        @extend %box-shadow;
+        width: 94%;
+        padding: 0 3%;
+        margin: 2.6% 0;
+        height: 3vw;
+        border: 1px solid #f1f1f1;
+        border-radius: 2px;
+      }
+
+      a {
+        width: 100%;
+        @extend %cursor;
+        height: 3vw;
+        border-radius: 2px;
+        @extend %text-align-center;
+        background: $meun_login;
+        @extend %box-shadow;
+        line-height: 3vw;
+        @extend %display-inline-block;
+        font-size: 20px;
+        color: $color_FFFFFF;
+
+        &:hover {
+          background: $meun_login*1.1%;
+        }
+      }
+
+      &.yh_forget_password {
+        margin-top: 20px;
+        text-align: right;
+
+        s {
+          color: $color_999999;
+          @extend %cursor;
+        }
+      }
+
+      &.yh_denglu {
+        margin-top: 8%;
+      }
+
+      &.yh_login_authentication {
+        @extend %position-relative;
+
+        input {
+          width: 66%;
+          padding-right: 30%;
+        }
+
+        b {
+          @extend %display-inline-block;
+          @extend %position-absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(0, -50%);
+          height: 2vw;
+          border-left: 1px solid #f1f1f1;
+          color: $meun_login;
+          width: 28%;
+          text-align: center;
+          line-height: 2vw;
+          @extend %cursor;
+          font-weight: inherit;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.yh_layer {
+  @extend %overflow-hidden;
+  color: #666666;
+  margin-top: 30px;
+
+  .yh_left_input {
+    float: left;
+    width: 50%;
+
+    p {
+      margin: 10px 0;
+
+      span {
+        @extend %display-inline-block;
+        text-align: right;
+        width: 30%;
+        line-height: 1.6vw;
+        min-height: 30px;
+        color: #666666;
+      }
+
+      input {
+        width: 60%;
+        height: 1.6vw;
+        line-height: 1.6vw;
+        min-height: 30px;
+        padding: 1%;
+        border-radius: 2px;
+        border: 1px solid #f1f1f1;
+        background: #F4F6F7;
+      }
+
+      &.yh_yhk_seledt {
+        select {
+          width: 62%;
+          border: 1px solid #f1f1f1;
+          color: #666666;
+          height: 2.2vw;
+          min-height: 30px;
+          background: #F4F6F7;
+        }
+      }
+
+      &.yh_shengshi_select {
+        select {
+          width: 28%;
+          margin-right: 2%;
+          border: 1px solid #f1f1f1;
+          color: #666666;
+          height: 2.2vw;
+          min-height: 30px;
+          background: #F4F6F7;
+        }
+
+        input {
+          width: 30%;
+        }
+      }
+
+      &.yh_add_role {
+        a {
+          @extend %display-inline-block;
+          @extend %position-relative;
+          width: 62%;
+
+          input {
+            width: 64% !important;
+            padding-right: 35%;
+          }
+
+          i {
+            @extend %display-inline-block;
+            @extend %position-absolute;
+            padding: .3vw .6vw;
+            background: $meun_login;
+            top: 50%;
+            right: 1%;
+            transform: translate(0, -50%);
+            color: $color_FFFFFF;
+            font-size: 12px;
+            border-radius: 5px;
+            @extend %cursor;
+          }
+        }
+      }
+    }
+  }
+}
+
+.yh_layer_remarks {
+  display: flex;
+
+  span {
+    width: 15%;
+    @extend %display-inline-block;
+    text-align: right;
+    color: #666666;
+  }
+
+  textarea {
+    width: 79%;
+    min-width: 79%;
+    max-width: 79%;
+    min-height: 5vw;
+    max-height: 5vw;
+    height: 5vw;
+    padding: 1%;
+    border: 1px solid #f1f1f1;
+    background: #F4F6F7;
+    resize: none;
+  }
+}
+
+//'../images/close.png'
+.layui-layer-setwin a {
+  background-position: -82px -40px !important;
+}
+
+#layer-role-center {
+  @extend %text-align-center;
+  line-height: 160px;
+  font-size: 22px;
+  color: #666666;
+}
+
+.layui-layer-content {
+  padding: 0 40px;
+}
+
+.yh_manages_recharge {
+  color: #666666;
+  padding-bottom: 50px;
+
+  p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    letter-spacing: 3px;
+    select {
+      width: 63%;
+      border: 1px solid #f1f1f1;
+      color: #666;
+      height: 2.2vw;
+      min-height: 30px;
+      background: #f4f6f7;
+    }
+  }
+
+  .yh_detailed {
+    .yh_user_select{
+      @extend %position-relative;
+      a{
+        @extend %display-inline-block;
+        width: 90px;
+        height: 39.08px;
+        @extend %position-absolute;
+        top: 0;
+        right: 16px;
+        font-size: 12px;
+        @extend %text-align-center;
+        background: $meun_login;
+        line-height: 39.08px;
+        color: $color_FFFFFF;
+        border-radius: 5px;
+        @extend %cursor;
+      }
+      input{
+        width: 90.38px !important;
+        margin-right: 10px !important;
+      }
+    }
+    table {
+      width: 100%;
+
+      tr {
+        height: 50px;
+      }
+
+      td, th {
+        @extend %text-align-center;
+        letter-spacing: 3px;
+      }
+
+      th {
+        border-bottom: none;
+      }
+    }
+    textarea {
+      width: 58%;
+      padding: 2%;
+      resize: none;
+      height: 60px;
+      background: rgba(244, 246, 247, 1);
+      border-radius: 2px;
+      border: 1px solid rgba(244, 246, 247, 1);
+    }
+  }
+
+  .yh_balance_detailed {
+    margin: 40px 0;
+    @extend %overflow-hidden;
+
+    a {
+      width: 40%;
+      @extend %display-inline-block;
+      height: 50px;
+      @extend %overflow-hidden;
+
+      span {
+        @extend %display-block;
+        width: 40%;
+        @extend %text-align-center;
+        background: #F7FAFF;
+        height: 50px;
+        line-height: 50px;
+        float: left;
+      }
+
+      em {
+        @extend %display-block;
+        width: 59%;
+        float: left;
+        @extend %text-align-center;
+        border-left: 1px solid #DADADA;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        font-family: DIN-Medium;
+        color: rgba(51, 51, 51, 1);
+        letter-spacing: 4px;
+      }
+
+      border: 1px solid #DADADA;
+
+      &:first-child {
+        float: left;
+      }
+
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}
+
+.yh_manages_authorize {
+  padding-bottom: 50px;
+
+  p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(74, 139, 245, 1);
+    letter-spacing: 3px;
+    margin-top: 30px;
+  }
+
+  .yh_authorize {
+    table {
+      width: 100%;
+
+      tr {
+        height: 50px;
+
+        th, td {
+          @extend %text-align-center;
+          letter-spacing: 3px;
+          font-family: PingFangSC-Medium;
+        }
+
+        th {
+          border-bottom: none;
+          background: #F7FAFF;
+        }
+
+        b {
+          @extend %position-relative;
+        }
+      }
+    }
+  }
+}
+
+#layer-role-center_1, #layer-role-center_2 {
+  .yh_manages_recharge {
+    padding: 0 !important;
+  }
+
+  p {
+    margin: 20px 0;
+
+    span {
+      @extend %display-inline-block;
+      width: 32%;
+      text-align: right;
+    }
+
+    input {
+      width: 60%;
+      height: 1.6vw;
+      line-height: 1.6vw;
+      min-height: 30px;
+      padding: 1%;
+      border-radius: 2px;
+      border: 1px solid #f1f1f1;
+      background: #f4f6f7;
+    }
+  }
+
+  .yh_tips_warning {
+    padding: 0 60px;
+
+    i {
+      @extend %display-block;
+      width: 100%;
+      font-size: 12px;
+      color: #666;
+    }
+  }
+}
+
+#layer-role_10 {
+  p {
+    @extend .line-content;
+  }
+}
+
+#MultiServiceSettings .yh_setting_left, #MultiServiceSettings .yh_setting_right {
+  width: 33% !important;
+}
+
+#Opening_Settings .yh_Range s {
+  display: block !important;
+
+  input {
+    border-radius: inherit;
+  }
+}
+
+#yh_contacts_left {
+  width: 60% !important;
+
+  .yh_fesit {
+    width: 28% !important;
+  }
+
+  .yh_lasit {
+    width: 14% !important;
+  }
+
+  select {
+    width: 23% !important;
+  }
+}
+
+#yh_contacts_right {
+  width: 40% !important;
+
+  p {
+    span {
+      width: 40% !important;
+    }
+
+    input {
+      width: 56% !important;
+    }
+  }
+}
+
+#yh_contacts {
+  h3 {
+    font-weight: bold !important;
+    color: #000 !important;
+  }
+}
+
+#yh_role_naver {
+  border-bottom: 1px solid #f0f1f2;
+  background: #F7FAFF;
+
+  a {
+    @extend %display-inline-block;
+    width: 8.5%;
+    margin: 0 2%;
+    @extend %cursor;
+    border-bottom: 2px solid #F7FAFF;
+    @extend %text-align-center;
+    line-height: 50px;
+
+    &:hover {
+      border-bottom: 2px solid $meun_login;
+      color: $meun_login;
+    }
+
+    &.yh_active_authorization {
+      border-bottom: 2px solid $meun_login;
+      color: $meun_login;
+    }
+  }
+}
+
+.yh_role_authorization {
+  border: 1px solid #f0f1f2;
+  color: #666;
+  margin-top: 30px;
+
+  .yh_Service_Opening_Settings {
+    p:first-child {
+      padding-left: 20px !important;
+      margin-top: 10px;
+    }
+  }
+}
+
+.toloan_list {
+  background: $color_FFFFFF;
+  padding: 30px 60px;
+  @extend %box-shadow;
+  margin-top: 10px;
+
+  p {
+    margin: 30px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    a {
+      @extend %display-inline-block;
+      padding: 0 20px;
+      @extend %text-align-center;
+      line-height: 38px;
+      background: $meun_login;
+      color: $color_FFFFFF;
+      border-radius: 50px;
+    }
+  }
+
+  table {
+    width: 100%;
+    border: 1px solid rgba(218, 218, 218, 1);
+    margin-bottom: 10px;
+
+    th {
+      background: rgba(241, 246, 252, 1);
+    }
+
+    th, td {
+      border: none;
+      border-bottom: 1px solid rgba(218, 218, 218, 1);
+      padding: 20px 0;
+      @extend %text-align-center;
+    }
+  }
+  ul {
+    background: rgba(241, 246, 252, 1);
+    padding: 1% 2%;
+    @extend %overflow-hidden;
+    border: 1px solid rgba(218, 218, 218, 1);
+
+    li {
+      width: 24%;
+      float: left;
+
+      a {
+        display: flex;
+        margin: 15px 0;
+
+        span {
+          @extend %display-inline-block;
+          width: 34%;
+          color: #B9BABB;
+          text-align: right;
+          font-size: 14px;
+        }
+
+        em {
+          @extend %display-inline-block;
+          width: 66%;
+          color: #666666;
+          text-align: left;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &.yh_blacklist {
+      li {
+        width: 50%;
+      }
+    }
+  }
+
+  .yh_document {
+    @extend %overflow-hidden;
+
+    a {
+      @extend %display-block;
+      float: left;
+      width: 33.33%;
+      text-align: center;
+      @extend %position-relative;
+
+      i {
+        @extend %display-inline-block;
+        @extend %position-absolute;
+        bottom: 50px;
+        right: 6%;
+        font-size: 30px;
+        color: $meun_login;
+        @extend %cursor;
+      }
+
+      b {
+        width: 70%;
+        @extend %display-inline-block;
+        margin: auto;
+        height: 13vw;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      span {
+        @extend %display-block;
+        color: #666666;
+        line-height: 60px;
+      }
+    }
+  }
+
+  .yh_anti_fraud {
+
+  }
+
+  .yh_left_right {
+    td:nth-child(odd) {
+      background: rgba(241, 246, 252, 1);
+      border: 1px solid rgba(218, 218, 218, 1);
+    }
+  }
+
+  .yh_doubt {
+    tr {
+      td {
+        background: $color_FFFFFF !important;
+      }
+    }
+
+    tr:first-child {
+      td:first-child {
+        background: rgba(241, 246, 252, 1) !important;
+      }
+    }
+  }
+}
+.yh_record_img {
+  padding: 100px 0;
+  text-align: center;
+
+  img {
+    width: 30%;
+    margin: auto;
+    display: inherit;
+  }
+
+  span {
+    @extend %display-inline-block;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+}
+.yh_anti_fraud {
+  border-bottom: 1px solid #DADADA;
+  margin-bottom: 30px;
+
+  a {
+    @extend %display-inline-block;
+    padding: 15px 0px;
+    margin: 0 20px;
+    font-size: 18px;
+    @extend %cursor;
+    border-bottom: 2px solid $color_FFFFFF;
+
+    &.yh_anti_active {
+      border-bottom: 2px solid $meun_login;
+      color: $meun_login;
+    }
+
+    &:hover {
+      border-bottom: 2px solid $meun_login;
+      color: $meun_login;
+    }
+  }
+}
+
+.yh_jiedai {
+  background: #f1f6fc;
+  padding: 1% 2%;
+  border: 1px solid #dadada;
+
+  .yh_name_chanage {
+    a {
+      @extend %display-inline-block;
+      width: 25%;
+
+      span {
+        width: 34%;
+        color: #b9babb;
+        text-align: right;
+        font-size: 14px;
+        @extend %display-inline-block;
+      }
+
+      em {
+        width: 66%;
+        color: #666;
+        text-align: left;
+        font-size: 14px;
+        @extend %display-inline-block;
+      }
+    }
+  }
+
+  .yh_xinxi {
+    a {
+      @extend %display-inline-block;
+      width: 100%;
+      @extend %overflow-hidden;
+
+      span {
+        @extend %display-inline-block;
+        font-size: 14px;
+        width: 8.5%;
+        text-align: right;
+        color: #b9babb;
+      }
+
+      em {
+        color: #666666;
+      }
+
+      b {
+        font-weight: inherit;
+        font-size: 14px;
+      }
+
+      s {
+        font-size: 14px;
+      }
+
+      i {
+        font-size: 14px;
+      }
+
+      .yh_lxr {
+        float: left;
+      }
+
+      .yh_em_biaoqing {
+        @extend %display-block;
+        float: left;
+        width: 91.5%;
+
+        em {
+          @extend %display-block;
+        }
+      }
+    }
+  }
+}
+
+.yh_perator {
+  th, td {
+    border: 1px solid #DADADA !important;
+  }
+}
+
+.yh_remarks {
+  div {
+    margin-top: 40px;
+
+    textarea {
+      width: 96%;
+      min-width: 96%;
+      max-width: 96%;
+      height: 300px;
+      min-height: 300px;
+      max-height: 300px;
+      padding: 10px 2%;
+      background: rgba(244, 246, 247, 1);
+      border-radius: 2px;
+      border: 1px solid rgba(244, 246, 247, 1);
+      resize: none;
+    }
+  }
+}
+
+.yh_manages_layer {
+  font-size: 14px;
+  margin-bottom: 50px;
+  p {
+    margin: 30px 0;
+
+    a {
+      @extend %display-inline-block;
+      margin-right: 30px;
+      @extend %cursor;
+      color: $meun_login;
+      font-size: 16px;
+    }
+  }
+
+  div {
+    table {
+      width: 100%;
+
+      th {
+        background: rgba(247, 250, 255, 1);
+      }
+      th, td {
+        border: 1px solid rgba(218, 218, 218, 1);
+        height: 35px;
+        @extend %text-align-center;
+        font-size: 14px;
+        .yh_postion {
+          @extend %position-relative;
+        }
+      }
+      td{
+        color: #666666;
+      }
+    }
+  }
+}
+
+.yh_usage_situation {
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.yh_red_envelopes {
+  p {
+    margin: 10px 0 !important;
+    color: #666666 !important;
+    @extend .line-content;
+
+    label {
+      @extend .line-content;
+
+      &:last-child {
+        margin-left: 20px !important;
+      }
+    }
+
+    input[type='radio'] {
+      width: 18px !important;
+      height: inherit !important;
+    }
+
+    em {
+      margin: 0 10px !important;
+      @extend %display-inline-block;
+    }
+
+    span {
+      width: inherit !important;
+    }
+
+    i {
+      font-size: 12px !important;
+      color: #999999 !important;
+    }
+  }
+
+  input[type='text'] {
+    width: 310px !important;
+    padding: 0 5px;
+    height: 30px !important;
+    border: 0 solid rgb(244, 246, 247);
+    background: rgb(244, 246, 247);
+  }
+
+  textarea {
+    margin: 0;
+    width: 310px;
+    min-width: 310px;
+    max-width: 310px;
+    padding: 5px;
+    background: rgb(244, 246, 247);
+    height: 50px;
+    max-height: 50px;
+    min-height: 50px;
+    border: 0 solid rgb(244, 246, 247);
+    resize: none;
+  }
+}
+
+.yh_authentication_list {
+  .yh_choice_list {
+    width: 720px;
+    color: #666666;
+    @extend %overflow-hidden;
+    .yh_list_authentication {
+      width: 35.5%;
+      float: left;
+      &:last-child{
+        width: 29%;
+        .yh_selection_box{
+          width: 99% !important;
+        }
+      }
+      @extend %overflow-hidden;
+      .yh_selection_box {
+        overflow-y: scroll;
+        border: 1px solid #dadada;
+        height: 250px;
+        float: left;
+        width: 79%;
+        a {
+          @extend %display-block;
+          @extend %cursor;
+          line-height: 30px;
+          padding: 0 10px;
+          &.selection, &:hover {
+            background: rgba(241, 246, 252, 1);
+          }
+        }
+      }
+    }
+
+    .yh_Arrow {
+      width: 16%;
+      margin: 0 2%;
+      float: left;
+      margin-top: 70px;
+      p {
+        margin: 5px 0 !important;
+        i {
+          width: 98%;
+          border: 1px solid #DADADA;
+          line-height: 22px;
+          @extend %text-align-center;
+          @extend %cursor;
+          @extend %display-inline-block;
+          &:hover {
+            background: $meun_login;
+            color: $color_FFFFFF;
+          }
+        }
+      }
+    }
+  }
+  .yh_prompt_tips {
+    margin: 20px 0;
+    em {
+      @extend %display-block;
+      font-size: 13px;
+    }
+  }
+}
+.yh_button_layer{
+  a{
+    margin-right: 20px;
+    color: $meun_login;
+    @extend %cursor;
+  }
+}
+.yh_alternative{
+  margin: 20px 0;
+  select{
+    border: 1px solid #f1f1f1;
+    height: 37px;
+    margin-right: 25px;
+    color: #999;
+  }
+  s{
+    width: 210px;
+    position: relative;
+    @extend %display-inline-block;
+    i {
+      @extend %position-absolute;
+      top: 50%;
+      right: 20px;
+      transform: translate(-50%,-50%);
+      font-size: 22px;
+    }
+  }
+  input {
+    border: 1px solid #f1f1f1;
+    width: 150px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 10px;
+    padding-right: 22px;
+    margin-right: 20px;
+
+  }
+  a {
+    color: $color_FFFFFF;
+    background: $meun_login;
+    border-radius: 20px;
+    padding: 10px 20px;
+    i {
+      margin-right: 10px;
+    }
+    @extend %cursor;
+  }
+}
+.jinyong{
+  color: red !important;
+}

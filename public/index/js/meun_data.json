@@ -1,0 +1,756 @@
+[
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "org/orgIndex.htm"
+            },
+            "id": 84,
+            "text": "机构管理",
+            "state": "open",
+            "iconCls": "icon-2"
+          },
+          {
+            "attributes": {
+              "menuUrl": "user/userIndex.htm"
+            },
+            "id": 6,
+            "text": "后台账号管理",
+            "state": "open",
+            "iconCls": "icon-489"
+          },
+          {
+            "attributes": {
+              "menuUrl": "role/roleIndex.htm"
+            },
+            "id": 7,
+            "text": "角色管理",
+            "state": "open",
+            "iconCls": "icon-486"
+          },
+          {
+            "attributes": {
+              "menuUrl": "menu/menuIndex.htm"
+            },
+            "id": 5,
+            "text": "菜单管理",
+            "state": "open",
+            "iconCls": "icon-menuManage"
+          },
+          {
+            "attributes": {
+              "menuUrl": "log/logIndex.htm"
+            },
+            "id": 26,
+            "text": "日志管理",
+            "state": "open",
+            "iconCls": "icon-513"
+          },
+          {
+            "attributes": {
+              "menuUrl": "service/serviceIndex.htm"
+            },
+            "id": 85,
+            "text": "服务设置",
+            "state": "open",
+            "iconCls": "icon-29"
+          },
+          {
+            "attributes": {
+              "menuUrl": "service/service3Index.htm"
+            },
+            "id": 124,
+            "text": "服务设置2",
+            "state": "open",
+            "iconCls": "icon-22"
+          },
+          {
+            "attributes": {
+              "menuUrl": "user/salesIndex.htm"
+            },
+            "id": 98,
+            "text": "业务员管理(分销)",
+            "state": "open",
+            "iconCls": "icon-51"
+          },
+          {
+            "attributes": {
+              "menuUrl": "service/service2Index.htm"
+            },
+            "id": 111,
+            "text": "公众号服务设置",
+            "state": "open",
+            "iconCls": "icon-103"
+          },
+          {
+            "attributes": {
+              "menuUrl": "banner/bannerIndex.htm"
+            },
+            "id": 122,
+            "text": "Banner管理",
+            "state": "open",
+            "iconCls": "icon-90"
+          },
+          {
+            "attributes": {
+              "menuUrl": "agent/index.htm"
+            },
+            "id": 128,
+            "text": "代理商管理",
+            "state": "open",
+            "iconCls": "icon-97"
+          },
+          {
+            "attributes": {
+              "menuUrl": "mes/mobileEstIndex.htm"
+            },
+            "id": 130,
+            "text": "手机型号评估清单",
+            "state": "open",
+            "iconCls": "icon-63"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orgSmsConfig/orgSmsConfigIndex.htm"
+            },
+            "id": 137,
+            "text": "短信配置",
+            "state": "open",
+            "iconCls": "icon-201"
+          },
+          {
+            "attributes": {
+              "menuUrl": "allConfig/allConfigIndex.htm"
+            },
+            "id": 138,
+            "text": "系统配置",
+            "state": "open",
+            "iconCls": "icon-95"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orgCreditSuper/orgCreditSuperIndex.htm"
+            },
+            "id": 142,
+            "text": "贷超管理",
+            "state": "open",
+            "iconCls": "icon-96"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orgAdvanceFund/orgAdvanceFundIndex.htm"
+            },
+            "id": 144,
+            "text": "垫资配置",
+            "state": "open",
+            "iconCls": "icon-79"
+          },
+          {
+            "attributes": {
+              "menuUrl": "autoLoanConfig/autoLoanConfigIndex.htm"
+            },
+            "id": 154,
+            "text": "高级配置",
+            "state": "open",
+            "iconCls": "icon-20"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 2,
+        "text": "系统管理",
+        "state": "closed",
+        "iconCls": "icon-permission"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "bussUser/userRegIndex.htm"
+            },
+            "id": 92,
+            "text": "注册用户",
+            "state": "open",
+            "iconCls": "icon-28"
+          },
+          {
+            "attributes": {
+              "menuUrl": "bussUser/userBorIndex.htm"
+            },
+            "id": 93,
+            "text": "借款中用户",
+            "state": "open",
+            "iconCls": "icon-22"
+          },
+          {
+            "attributes": {
+              "menuUrl": "simpleUser/simpleUserRegIndex.htm"
+            },
+            "id": 103,
+            "text": "用户信息",
+            "state": "open",
+            "iconCls": "icon-34"
+          },
+          {
+            "attributes": {
+              "menuUrl": "bussUser/userBorerHisIndex.htm"
+            },
+            "id": 94,
+            "text": "历史借款用户",
+            "state": "open",
+            "iconCls": "icon-26"
+          },
+          {
+            "attributes": {
+              "menuUrl": "bussUser/userBlackIndex.htm"
+            },
+            "id": 123,
+            "text": "借款黑名单用户",
+            "state": "open",
+            "iconCls": "icon-20"
+          },
+          {
+            "attributes": {
+              "menuUrl": "simpleOrder/simpleOrderIndex.htm"
+            },
+            "id": 104,
+            "text": "订单信息",
+            "state": "open",
+            "iconCls": "icon-51"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/userRegIndex.htm"
+            },
+            "id": 105,
+            "text": "渠道注册用户",
+            "state": "open",
+            "iconCls": "icon-28"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/userBorIndex.htm"
+            },
+            "id": 106,
+            "text": "渠道借款中用户",
+            "state": "open",
+            "iconCls": "icon-22"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/userBorerHisIndex.htm"
+            },
+            "id": 108,
+            "text": "渠道历史借款用户",
+            "state": "open",
+            "iconCls": "icon-26"
+          },
+          {
+            "attributes": {
+              "menuUrl": "bussUser/userNoApplyIndex.htm"
+            },
+            "id": 127,
+            "text": "认证未申请用户",
+            "state": "open",
+            "iconCls": "icon-4"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/userStatisticsIndex.htm"
+            },
+            "id": 133,
+            "text": "渠道数据统计",
+            "state": "open",
+            "iconCls": "icon-5"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 91,
+        "text": "用户管理",
+        "state": "closed",
+        "iconCls": "icon-29"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "orderUser/auditOrdIndex.htm"
+            },
+            "id": 75,
+            "text": "待审核用户",
+            "state": "open",
+            "iconCls": "icon-49"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orderUser/auditPassIndex.htm"
+            },
+            "id": 76,
+            "text": "审核成功",
+            "state": "open",
+            "iconCls": "icon-54"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orderUser/auditNoPassIndex.htm"
+            },
+            "id": 77,
+            "text": "审核不成功",
+            "state": "open",
+            "iconCls": "icon-50"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/auditOrdIndex.htm"
+            },
+            "id": 107,
+            "text": "渠道待复审用户",
+            "state": "open",
+            "iconCls": "icon-49"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/auditPassIndex.htm"
+            },
+            "id": 109,
+            "text": "渠道审核成功",
+            "state": "open",
+            "iconCls": "icon-54"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channel/auditNoPassIndex.htm"
+            },
+            "id": 110,
+            "text": "渠道审核不成功",
+            "state": "open",
+            "iconCls": "icon-50"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orderUser/myAuditOrdIndex.htm"
+            },
+            "id": 112,
+            "text": "我的待复审用户",
+            "state": "open",
+            "iconCls": "icon-49"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orderUser/auditOrdReIndex.htm"
+            },
+            "id": 140,
+            "text": "待复审用户",
+            "state": "open",
+            "iconCls": "icon-39"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orderUser/auditStatIndex.htm"
+            },
+            "id": 153,
+            "text": "审核报表",
+            "state": "open",
+            "iconCls": "icon-35"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 67,
+        "text": "风控管理",
+        "state": "closed",
+        "iconCls": "icon-79"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "orgChannel/orgChannelIndex.htm"
+            },
+            "id": 147,
+            "text": "渠道统计",
+            "state": "open",
+            "iconCls": "icon-18"
+          },
+          {
+            "attributes": {
+              "menuUrl": "channelHiddenConfig/channelHiddenConfigIndex.htm"
+            },
+            "id": 148,
+            "text": "渠道隐藏率",
+            "state": "open",
+            "iconCls": "icon-8"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 146,
+        "text": "渠道管理",
+        "state": "closed",
+        "iconCls": "icon-32"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "everyday/index.htm"
+            },
+            "id": 135,
+            "text": "每日数据统计",
+            "state": "open",
+            "iconCls": "icon-3"
+          },
+          {
+            "attributes": {
+              "menuUrl": "loan/loanIndex.htm"
+            },
+            "id": 80,
+            "text": "待放款",
+            "state": "open",
+            "iconCls": "icon-90"
+          },
+          {
+            "attributes": {
+              "menuUrl": "loan/loaningIndex.htm"
+            },
+            "id": 95,
+            "text": "放款中记录",
+            "state": "open",
+            "iconCls": "icon-49"
+          },
+          {
+            "attributes": {
+              "menuUrl": "loan/loanRecordIndex.htm"
+            },
+            "id": 82,
+            "text": "放款记录-支出",
+            "state": "open",
+            "iconCls": "icon-57"
+          },
+          {
+            "attributes": {
+              "menuUrl": "trade/tradeAnalysisIndex.htm"
+            },
+            "id": 81,
+            "text": "待还款",
+            "state": "open",
+            "iconCls": "icon-147"
+          },
+          {
+            "attributes": {
+              "menuUrl": "trade/tradeIndex.htm"
+            },
+            "id": 89,
+            "text": "还款记录-收入",
+            "state": "open",
+            "iconCls": "icon-33"
+          },
+          {
+            "attributes": {
+              "menuUrl": "use/useIndex.htm"
+            },
+            "id": 90,
+            "text": "服务使用记录",
+            "state": "open",
+            "iconCls": "icon-68"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/orgWithdrawIndex.htm"
+            },
+            "id": 114,
+            "text": "提现待审核",
+            "state": "open",
+            "iconCls": "icon-12"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/orgWithdrawPassIndex.htm"
+            },
+            "id": 115,
+            "text": "提现已审核",
+            "state": "open",
+            "iconCls": "icon-8"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/couponWithdrawIndex.htm"
+            },
+            "id": 116,
+            "text": "红包提现待审核",
+            "state": "open",
+            "iconCls": "icon-10"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/couponWithdrawPassIndex.htm"
+            },
+            "id": 117,
+            "text": "红包提现已审核",
+            "state": "open",
+            "iconCls": "icon-33"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/orgRechargeIndex.htm"
+            },
+            "id": 118,
+            "text": "用户充值记录",
+            "state": "open",
+            "iconCls": "icon-12"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/orgWithdrawNotPassIndex.htm"
+            },
+            "id": 120,
+            "text": "提现审核不成功",
+            "state": "open",
+            "iconCls": "icon-1"
+          },
+          {
+            "attributes": {
+              "menuUrl": "withdraw/couponWithdrawNotPassIndex.htm"
+            },
+            "id": 121,
+            "text": "红包提现审核不成功",
+            "state": "open",
+            "iconCls": "icon-37"
+          },
+          {
+            "attributes": {
+              "menuUrl": "loan/depositlist.htm"
+            },
+            "id": 99,
+            "text": "机构充值提现记录",
+            "state": "open",
+            "iconCls": "icon-511"
+          },
+          {
+            "attributes": {
+              "menuUrl": "financial/verifyIndex.htm"
+            },
+            "id": 113,
+            "text": "财务对账",
+            "state": "open",
+            "iconCls": "icon-43"
+          },
+          {
+            "attributes": {
+              "menuUrl": "use/orgUseRecordTotalIndex.htm"
+            },
+            "id": 119,
+            "text": "机构服务使用记录",
+            "state": "open",
+            "iconCls": "icon-117"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orgFee/orgFeeIndex.htm"
+            },
+            "id": 129,
+            "text": "服务费充值记录",
+            "state": "open",
+            "iconCls": "icon-65"
+          },
+          {
+            "attributes": {
+              "menuUrl": "statistics/statisticsIndex.htm"
+            },
+            "id": 132,
+            "text": "数据统计",
+            "state": "open",
+            "iconCls": "icon-5"
+          },
+          {
+            "attributes": {
+              "menuUrl": "moneyDetail/moneyDetailIndex.htm"
+            },
+            "id": 143,
+            "text": "资金变动明细",
+            "state": "open",
+            "iconCls": "icon-103"
+          },
+          {
+            "attributes": {
+              "menuUrl": "orgUncashDesc/orgUncashDescIndex.htm"
+            },
+            "id": 149,
+            "text": "垫资解冻",
+            "state": "open",
+            "iconCls": "icon-29"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 79,
+        "text": "财务管理",
+        "state": "closed",
+        "iconCls": "icon-278"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "coupon/couponIndex.htm"
+            },
+            "id": 83,
+            "text": "红包管理",
+            "state": "open",
+            "iconCls": "icon-69"
+          },
+          {
+            "attributes": {
+              "menuUrl": "content/contentIndex.htm"
+            },
+            "id": 131,
+            "text": "分享集合",
+            "state": "open",
+            "iconCls": "icon-17"
+          },
+          {
+            "attributes": {
+              "menuUrl": "notice/noticeIndex.htm"
+            },
+            "id": 52,
+            "text": "公告管理",
+            "state": "open",
+            "iconCls": "icon-3"
+          },
+          {
+            "attributes": {
+              "menuUrl": "feedback/feedBackIndex.htm"
+            },
+            "id": 97,
+            "text": "联系CEO",
+            "state": "open",
+            "iconCls": "icon-106"
+          },
+          {
+            "attributes": {
+              "menuUrl": "strategy/strategyIndex.htm"
+            },
+            "id": 136,
+            "text": "攻略管理",
+            "state": "open",
+            "iconCls": "icon-3"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 3,
+        "text": "产品管理",
+        "state": "closed",
+        "iconCls": "icon-student"
+      },
+      {
+        "children": [
+          {
+            "attributes": {
+              "menuUrl": "overdue/overdueIndex.htm"
+            },
+            "id": 88,
+            "text": "逾期催收管理",
+            "state": "open",
+            "iconCls": "icon-27"
+          },
+          {
+            "attributes": {
+              "menuUrl": "group/groupIndex.htm"
+            },
+            "id": 125,
+            "text": "催收组",
+            "state": "open",
+            "iconCls": "icon-65"
+          },
+          {
+            "attributes": {
+              "menuUrl": "overdue/overdue2Index.htm"
+            },
+            "id": 126,
+            "text": "逾期催收分组",
+            "state": "open",
+            "iconCls": "icon-3"
+          },
+          {
+            "attributes": {
+              "menuUrl": "csGroup/csGroupUserIndex.htm"
+            },
+            "id": 150,
+            "text": "自动分配设置",
+            "state": "open",
+            "iconCls": "icon-8"
+          },
+          {
+            "attributes": {
+              "menuUrl": "csPerson/csPersonIndex.htm"
+            },
+            "id": 151,
+            "text": "催收员",
+            "state": "open",
+            "iconCls": "icon-8"
+          },
+          {
+            "attributes": {
+              "menuUrl": "myCsPerson/myCsPersonIndex.htm"
+            },
+            "id": 152,
+            "text": "我的催收统计",
+            "state": "open",
+            "iconCls": "icon-item"
+          },
+          {
+            "attributes": {
+              "menuUrl": "trade/deductionLogIndex.htm"
+            },
+            "id": 96,
+            "text": "扣款失败记录",
+            "state": "open",
+            "iconCls": "icon-204"
+          }
+        ],
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 87,
+        "text": "催债管理",
+        "state": "closed",
+        "iconCls": "icon-3"
+      },
+      {
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 15,
+        "text": "修改密码",
+        "state": "open",
+        "iconCls": "icon-modifyPassword"
+      },
+      {
+        "attributes": {
+          "menuUrl": ""
+        },
+        "id": 16,
+        "text": "安全退出",
+        "state": "open",
+        "iconCls": "icon-exit"
+      }
+    ],
+    "attributes": {
+      "menuUrl": ""
+    },
+    "id": 1,
+    "text": "后台管理系统",
+    "state": "closed",
+    "iconCls": "icon-home"
+  }
+]

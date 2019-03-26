@@ -1,0 +1,66 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 公告管理
+    body
+        div.yh_manage_account#manages_product_notice
+            div.yh_operation
+                a 添加
+                a 编辑
+                a 上架
+                a 下架
+                a(@click='PushInformation') 给用户推送信息
+                div.yh_role_search.yh_user_right_input.yh_census_input(style='font-size: 14px')
+                    input(type='text' placeholder='标题' onfocus="this.placeholder=''" onblur="this.placeholder='标题'")
+                    select
+                        option 选择
+                        option 选择
+                        option 选择
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 标题
+                            th 添加时间
+                            th 状态
+                            th 类型
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+        div#yh_layer_4(style='display:none')
+            div.yh_manages_recharge
+                div.yh_detailed
+                    p.yh_user_select
+                        span 接收人ID:
+                        input
+                        a 选择用户
+                    p
+                        span 消息标题:
+                        input
+                    p
+                        span(style='display: block;float: left;') 消息内容:
+                        textarea

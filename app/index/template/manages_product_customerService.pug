@@ -1,0 +1,76 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 联系客服
+    body
+        div.yh_manage_account#manages_product_customerService
+            div.yh_search.yh_user_right_input.yh_census_input
+                input(type='text' placeholder='姓名' onfocus="this.placeholder=''" onblur="this.placeholder='姓名'")
+                input(type='text' placeholder='手机' onfocus="this.placeholder=''" onblur="this.placeholder='手机'")
+                input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                s
+                    input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                    i.iconfont.icon-riqi
+                s
+                    input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_1')
+                    i.iconfont.icon-riqi
+                a
+                    i.iconfont.icon-search
+                    em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th id
+                            th 用户id
+                            th 姓名
+                            th 手机号
+                            th 用户问题描述
+                            th 识别码
+                            th 问题提交时间
+                            th 问题处理时间
+                            th 状态
+                            th 给反馈人回复
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.loginname')
+                            td(v-html='item.role')
+                            td(v-html='item.phone')
+                            td(v-html='item.name')
+                            td(v-html='item.jgbh')
+                            td(v-html='item.qd')
+                            td(v-html='item.state')
+                            td(v-html='item.sf')
+                            td(v-html='item.dis')
+                            td.yh_button_manage
+                                a(@click='feedback') 给反馈人回复信息
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除
+                        span 启用
+                        span 禁止
+            div#yh_layer(style='display:none')
+                div.yh_red_envelopes
+                    p   问题：
+                        span 为什么这么乱七八糟鸭！
+                    p
+                        span 回复标题：
+                    input(type='text')
+                    p
+                        span 问题反馈描述：
+                    textarea

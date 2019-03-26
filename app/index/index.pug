@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 圆汉信息
+    body
+        div.yh_manages_login_home#manages_login
+            div.yh_login_title
+                span
+                    img(src='../../public/index/images/logo_home.png')
+                    i UPRIC后台管理系统
+                span 圆汉信息欢迎您！
+            div.yh_login_input
+                form
+                    p 账户登录
+                    div
+                        input(placeholder='用户名/手机号/账户ID' onfocus="this.placeholder=''" onblur="this.placeholder='用户名/手机号/账户ID'" v-model='userName')
+                    div
+                        input(placeholder='请输入登录密码' v-model='password' onfocus="this.placeholder=''" onblur="this.placeholder='请输入登录密码'" type='password')
+                    div.yh_login_authentication
+                        input(placeholder='输入短信验证' v-model='imageCode'  onfocus="this.placeholder=''" onblur="this.placeholder='输入短信验证'")
+                        b(@click='Verification($event)') 获取验证码
+                    div(style='text-align:right') 没有收到
+                        i(style='color:#4a8bf5;margin:0 10px;cursor: pointer;' @click='Regain') 重新获取验证码
+                div.yh_denglu
+                    a(@click='ManageLogin') 登录
+                div.yh_forget_password
+                    s 忘记密码
+

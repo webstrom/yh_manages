@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 机构服务使用记录
+    body
+        div.yh_manage_account#manages_statistics_record
+            div.yh_operation
+                a excel导出
+                div.yh_role_search.yh_user_right_input.yh_census_input(style='font-size: 14px')
+                    input(type='text' placeholder='机构码' onfocus="this.placeholder=''" onblur="this.placeholder='机构码'")
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_2')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 机构码
+                            th 运营商认证次数
+                            th 运营商费用
+                            th 人脸认证次数
+                            th 人脸费用
+                            th 芝麻认证次数
+                            th 芝麻费用
+                            th 京东认证次数
+                            th 京东费用
+                            th 人行征信认证次数
+                            th 征信费用
+                            th 社保认证次数
+                            th 社保费用
+                            th 公积金认证次数
+                            th 公积金费用
+                            th 多借贷认证次数
+                            th 多借贷费用
+                            th 垫资次数
+                            th 垫资费用
+                            th 借条次数
+                            th 借条费用
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                            td(v-html='item.jksj')
+                            td(v-html='item.je')
+                            td(v-html='item.lx')
+                            td(v-html='item.qx')
+                            td(v-html='item.jgh')
+                            td(v-html='item.cs')
+                            td(v-html='item.qd')
+                            td(v-html='item.zt')
+                            td(v-html='item.sh')
+                            td(v-html='item.shr')
+                            td(v-html='item.yy')
+                            td(v-html='item.djd')
+                            td(v-html='item.dz')
+                            td(v-html='item.fy')
+                            td(v-html='item.jt')
+                            td(v-html='item.jtfy')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除

@@ -1,0 +1,277 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 机构管理
+    body
+        div.yh_manage_account#manages_system_institution
+            div.yh_operation
+                a(@click='addUser') 添加
+                a(@click='modifyUser') 修改
+                a(@click='enaBle') 启用
+                a(@click='prohibit') 禁止
+                a(@click='Recharge') 充值
+                a(@click='suspension') 暂停注册
+                div.yh_role_search.yh_user_right_input.yh_census_input
+                    input(type='text' placeholder='机构名' onfocus="this.placeholder=''" onblur="this.placeholder='机构名'")
+                    input(type='text' placeholder='机构识别码' onfocus="this.placeholder=''" onblur="this.placeholder='机构识别码'")
+                    select
+                        option 状态
+                        option 类型
+                    a
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 机构名称
+                            th 机构编号
+                            th 法人姓名
+                            th 法人身份证
+                            th 法人手机号
+                            th 法人银行卡号
+                            th 联系人
+                            th 联系手机号
+                            th 接收邮箱
+                            th 机构识别码
+                            th 机构类型
+                            th 服务费金额
+                            th 负责DB
+                            th 状态
+                            th 操作
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.loginname')
+                            td(v-html='item.role')
+                            td(v-html='item.phone')
+                            td(v-html='item.name')
+                            td(v-html='item.jgbh')
+                            td(v-html='item.qd')
+                            td
+                                s(v-html='item.state === 1 ?"正常":"异常"')
+                            td(v-html='item.sf')
+                            td(v-html='item.dis')
+                            td(v-html='item.sbm')
+                            td(v-html='item.lx')
+                            td(v-html='item.fw')
+                            td(v-html='item.bd')
+                            td
+                                s(v-html='item.zt')
+                            td.yh_button_manage
+                                a(@click='RechargeDetails') 充值明细
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span(@click='deleteUser') 删除
+                        span 启用
+                        span 禁止
+            div#yh_layer(style='display:none')
+                div.yh_layer
+                    div.yh_left_input
+                        p
+                            span 机构名：
+                            input
+                        p
+                            span 机构法人：
+                            input
+                        p
+                            span 法人手机号：
+                            input
+                        p.yh_yhk_seledt
+                            span 银行类型：
+                            select
+                                option 请选择
+                        p
+                            span 机构联系人：
+                            input
+                        p
+                            span 接收邮箱：
+                            input
+                        p
+                            span 负责DB：
+                            input
+                        p
+                            span 机构类型：
+                            input
+
+                    div.yh_left_input
+                        p
+                            span 机构编码：
+                            input
+                        p
+                            span 法人身份证：
+                            input
+                        p
+                            span 法人银行卡：
+                            input
+                        p.yh_shengshi_select
+                            span 银行卡省市：
+                            select
+                                option 选择省
+                                option(v-for='(item,index) in province' v-html='item.name')
+                            input
+                        p
+                            span 联系人手机：
+                            input
+                        p
+                            span 机构识别码：
+                            input
+                        p
+                            span 服务电话：
+                            input
+                        p
+                            span 备用电话：
+                            input
+                div.yh_layer_remarks
+                    span 备注：
+                    textarea(placeholder='填机构地址')
+            div#yh_layer_5(style='display:none')
+                div.yh_layer
+                    div.yh_left_input
+                        p
+                            span 机构名：
+                            input
+                        p
+                            span(style='text-align: left;') 剩余暂停  <br/>注册时间：
+                            input
+                    div.yh_left_input
+                        p
+                            span 机构编号：
+                            input
+                        p
+                            span(style='text-align: left;') 设置暂停  <br/>注册时间：
+                            input
+            div#yh_layer_1(style='display:none')
+                div.yh_layer
+                    div.yh_left_input
+                        p
+                            span 用户名：
+                            input
+                        p.yh_add_role
+                            span 角色：
+                            a
+                                input
+                                i 选择角色
+                        p
+                            span 手机号：
+                            input
+                        p
+                            span 渠道：
+                            input
+                    div.yh_left_input
+                        p
+                            span 密码：
+                            input
+                        p
+                            span 姓名：
+                            input
+                        p
+                            span 机构识别码：
+                            input
+                        p 新增用户后渠道不可修改
+                div.yh_layer_remarks
+                    span 备注：
+                    textarea
+            //充值明细弹窗
+            div#yh_layer_2(style='display:none')
+                div.yh_manages_recharge
+                    div.yh_balance_detailed
+                        a
+                            span 总充值金额
+                            em 1000000.00
+                        a
+                            span 余额
+                            em 1000000.00
+                    p 充值明细：
+                    div.yh_detailed
+                        table
+                            thead
+                                tr
+                                    th 充值时间
+                                    th 充值金额
+                                    th 备注
+                            tbody
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                                tr
+                                    td 2019-01-01 12:12:12
+                                    td 100
+                                    td 机构充值
+                    div.yh_manages_checked
+                        div#yh_detailed_page
+            div#yh_layer_4(style='display:none')
+                div.yh_manages_recharge
+                    div.yh_detailed
+                        p
+                            span 机构名：
+                            input
+                        p
+                            span 机构编号：
+                            input
+                        p
+                            span 充值金额：
+                            input(placeholder='最小金额100元' onfocus="this.placeholder=''" onblur="this.placeholder='最小金额100元'")
+            //授权
+            div#yh_layer_3(style='display:none')
+                div.yh_manages_authorize
+                    p 授权
+                    div.yh_authorize
+                        table
+                            thead
+                                tr
+                                    th(width='10%') 选择
+                                    th 用户角色
+                                    th 机构编号
+                                    th 普通渠道
+                            tbody
+                                tr(v-for='(item,index) in userauthorize')
+                                    td
+                                        b
+                                            label
+                                                input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                                label(:for="'input-select-'+index")
+                                    td(v-html='item.name')
+                                    td(v-html='item.item')
+                                    td(v-html='item.qudao')
+                    div.yh_manages_checked
+                        div#yh_detailed_page_1

@@ -1,0 +1,68 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 渠道注册
+    body
+        div.yh_manage_account#manages_channel_registration
+            div.yh_operation
+                a excel导出
+                div.yh_role_search.yh_user_right_input(style='font-size: 14px')
+                    input(type='text' placeholder='姓名' onfocus="this.placeholder=''" onblur="this.placeholder='姓名'")
+                    input(type='text' placeholder='手机' onfocus="this.placeholder=''" onblur="this.placeholder='手机'")
+                    input(type='text' placeholder='身份证' onfocus="this.placeholder=''" onblur="this.placeholder='身份证'")
+                    input(type='text' placeholder='识别码' onfocus="this.placeholder=''" onblur="this.placeholder='识别码'")
+                    s
+                        input.laydate-icon.form-control.layer-date(type='text' placeholder='开始时间' onfocus="this.placeholder=''" onblur="this.placeholder='开始时间'" id='manages_time')
+                        i.iconfont.icon-riqi
+                    s
+                        input(type='text' placeholder='截止时间' onfocus="this.placeholder=''" onblur="this.placeholder='截止时间'" id='manages_time_2')
+                        i.iconfont.icon-riqi
+                    a.yh_button
+                        i.iconfont.icon-search
+                        em 搜索
+            div.yh_table
+                table
+                    thead
+                        tr
+                            th(width='4%') 选择
+                            th 编号
+                            th 姓名
+                            th 手机号
+                            th 性别
+                            th 年龄
+                            th 身份证
+                            th 状态
+                            th(width='5%') 注册时间
+                            th(width='8%') 注册地址
+                            th 业务员
+                            th 识别码
+                            th 渠道码
+                    tbody
+                        tr(v-for='(item,index) in checkboxData')
+                            td
+                                b
+                                    label
+                                        input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" v-model='checkboxList' :value='index')
+                                        label(:for="'input-select-'+index")
+                            td(v-html='item.sik')
+                            td(v-html='item.role')
+                            td(v-html='item.sbm')
+                            td(v-html='item.name')
+                            td(v-html='item.dis')
+                            td(v-html='item.sjh')
+                            td(v-html='item.jksj')
+                            td(v-html='item.je')
+                            td(v-html='item.lx')
+                            td(v-html='item.qx')
+                            td(v-html='item.jgh')
+                            td(v-html='item.cs')
+                div.yh_manages_checked
+                    div#yh_manages_lauerpage
+                    div.yh_checked_box
+                        label
+                            input(id='input-id' class="color-input-red" type="checkbox" name="input-id" value="" v-model='checked' @click='checkedAll')
+                            label(for="input-id")
+                            span 全选
+                        span 删除

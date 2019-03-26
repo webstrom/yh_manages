@@ -1,0 +1,785 @@
+div.yh_toLoan(v-show='showCheader')
+    div.yh_manages_serviceSettings
+        a(@click='MeunReturn') 返回
+        a(@click='ToLoan' :class='display?"yh_active_service":""') 借贷
+        a(@click='Basics' :class='display1?"yh_active_service":""') 基础
+        a(@click='Loan' :class='display2?"yh_active_service":""') 借款
+        a(@click='Authentication' :class='display3?"yh_active_service":""') 认证
+    div.toloan_list(v-if='display')
+        p
+            a 借款记录
+        table
+            thead
+                tr
+                    th 借款时间
+                    th 借款金额
+                    th 借款类型
+                    th 审批结果
+                    th 还款状态
+                    th 逾期金额
+                    th 历史M3+逾期次数
+                    th 逾期期数
+                    th 历史逾期总数
+                    th 期数
+            tbody
+                tr
+                    td 2019-11-11 12:22:33
+                    td 10000.00
+                    td 享分期
+                    td 审核通过
+                    td 还款中
+                    td 0
+                    td 0
+                    td 0
+                    td 1
+                    td 11
+        p
+            a 机构查询管理
+        table
+            thead
+                tr
+                    th 查询总次数
+                    th 查询机构数
+                    th 本机构查询数
+            tbody
+                tr
+                    td 22
+                    td 22
+                    td 11
+        table
+            thead
+                tr
+                    th 查询时间
+                    th 查询原因
+                    th 机构类型
+            tbody
+                tr
+                    td 2019-01-02
+                    td 贷款审批
+                    td 非持牌消费-小额现金贷
+        p
+            a 风险项记录
+        table
+            thead
+                tr
+                    th 风险记录时间
+                    th 风险明细
+            tbody
+                tr
+                    td 2019-02-01
+                    td 多笔逾期记录
+        div.yh_record_img(style='display:none')
+            img(src="../../../public/index/images/record.png")
+            span 暂无相关记录
+    div.toloan_list(v-if='display1')
+        p
+            a 个人信息
+        ul
+            li
+                a
+                    span 姓名：
+                    em 孔连顺
+                a
+                    span 银行：
+                    em 中国工商银行
+                a
+                    span 学历：
+                    em 硕士
+                a
+                    span 工作单位名称：
+                    em 五道口职业技术学院
+                a
+                    span 办公室电话：
+                    em 010-6666666
+            li
+                a
+                    span 手机号：
+                    em 13456789876
+                a
+                    span 开户行：
+                    em 中国工商银行苏州枫桥支行
+                a
+                    span 毕业学校所在省：
+                    em 北京
+                a
+                    span 工作单位性质：
+                    em 机关
+                a
+                    span 住址：
+                    em 北京市朝阳区清道夫街道915号
+            li
+                a
+                    span 身份证号：
+                    em 373327288228182827
+                a
+                    span 类型：
+                    em 毕业
+                a
+                    span 工作所在省市：
+                    em 山西
+                a
+                    span 工作职位：
+                    em 校长
+                a
+                    span 注册定位：
+                    em 北京市朝阳区缉毒大队刑侦科a1组
+            li
+                a
+                    span 银行卡号：
+                    em 6222081122334456789
+                a
+                    span 性别：
+                    em 男
+                a
+                    span 学院：
+                    em 123
+                a
+                    span 月收入：
+                    em 100000
+                a
+                    span 芝麻分：
+                    em 900
+        p
+            a 身份证照片
+        div.yh_document
+            a
+                b
+                    img(src='../../../public/index/images/document.png')
+                i.iconfont.icon-icon
+                span 身份证正面
+            a
+                b
+                    img(src='../../../public/index/images/document.png')
+                i.iconfont.icon-icon
+                span 身份证背面
+            a
+                b
+                    img(src='../../../public/index/images/document.png')
+                i.iconfont.icon-icon
+                span 个人照片
+        p
+            a 通讯录
+            i.iconfont.icon-icon
+        table
+            thead
+                tr
+                    th 手机号
+                    th 姓名
+                    th 关系
+            tbody
+                tr
+                    td 1505777777777
+                    td 王健林
+                    td 父子
+        div.yh_record_img(style='display:none')
+            img(src="../../../public/index/images/record.png")
+            span 暂无相关记录
+    div.toloan_list(v-if='display2')
+        p
+            a 借款信息
+        table
+            thead
+                tr
+                    th 借款金额
+                    th(width="10%") 借款时间
+                    th(width="10%") 放款时间
+                    th 类型
+                    th 期限
+                    th(width="10%") 最后还款日
+                    th 本期应还金额
+                    th 还款状态
+                    th 是否逾期
+            tbody
+                tr
+                    td 10000.00
+                    td 2019-11-11 12:22:33
+                    td 2019-11-11 12:22:33
+                    td 享分期
+                    td 6天
+                    td 2019-03-01 12:00:00
+                    td 2000.00
+                    td 结清
+                    td 正常
+                tr
+                    td 10000.00
+                    td 2019-11-11 12:22:33
+                    td 2019-11-11 12:22:33
+                    td 享分期
+                    td 6天
+                    td 2019-03-01 12:00:00
+                    td 2000.00
+                    td 结清
+                    td 正常
+                tr
+                    td 10000.00
+                    td 2019-11-11 12:22:33
+                    td 2019-11-11 12:22:33
+                    td 享分期
+                    td 6天
+                    td 2019-03-01 12:00:00
+                    td 2000.00
+                    td 结清
+                    td 正常
+        div.yh_record_img(style='display:none')
+            img(src="../../../public/index/images/record.png")
+            span 暂无相关记录
+    div.toloan_list(v-if='display3')
+        div.yh_anti_fraud
+            a(@click='AntiFraud' :class='active?"yh_anti_active":""') 反欺诈
+            a(@click='Operator' :class='perator?"yh_anti_active":""') 运营商
+        div.yh_nti_fraud(v-show='active')
+            p
+                a 借款记录
+            ul
+                li
+                    a
+                        span 姓名：
+                        em 孔连顺
+                    a
+                        span 手机号码归属地：
+                        em 中国联通
+                    a
+                        span 圆圆评分：
+                        em --
+                li
+                    a
+                        span 身份证号码有效：
+                        em 是
+                    a
+                        span 身份证号码：
+                        em 3022188728789
+                li
+                    a
+                        span 身份证地址：
+                        em 江西省/九江市/都昌县
+                    a
+                        span 手机号码：
+                        em 17823456655
+                li
+                    a
+                        span 手机号码归属地：
+                        em 江西/抚州
+                    a
+                        span 用户特征列表：
+                        em --
+            p
+                a 借款平台信息
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width="30%") 近1月申请/实际借款平台数
+                        td(width="20%") 0/0
+                        td(width="30%") 近1月还款平台数
+                        td(width="20%") 0
+                    tr
+                        td 近3月申请/实际借款平台数
+                        td 0/0
+                        td 近3月还款平台数
+                        td 0
+                    tr
+                        td 近6月申请/实际借款平台数
+                        td 0/0
+                        td 近6月还款平台数
+                        td 0
+                    tr
+                        td 最近借款时间
+                        td --
+                        td 最近还款时间
+                        td --
+                    tr
+                        td 最近更新时间
+                        td 2019-02-22 12:34:56
+                        td 申请/实际借款平台数
+                        td 2/1
+                    tr
+                        td 还款平台数
+                        td 1
+                        td 还款笔数
+                        td 1
+                    tr
+                        td 欺诈得分
+                        td 24
+                        td 欺诈登记
+                        td 较低风险
+            p
+                a 借款情况信息
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width="30%") 近1月申请/实际借款平台数
+                        td(width="20%") 0/0
+                        td(width="30%") 近1月还款平台数
+                        td(width="20%") 0
+                    tr
+                        td 近3月申请/实际借款平台数
+                        td 0/0
+                        td 近3月还款平台数
+                        td 0
+                    tr
+                        td 近6月申请/实际借款平台数
+                        td 0/0
+                        td 近6月还款平台数
+                        td 0
+                    tr
+                        td 最近借款时间
+                        td --
+                        td 最近还款时间
+                        td --
+                    tr
+                        td 最近更新时间
+                        td 2019-02-22 12:34:56
+                        td 申请/实际借款平台数
+                        td 2/1
+                    tr
+                        td 还款平台数
+                        td 1
+                        td 还款笔数
+                        td 1
+                    tr
+                        td 欺诈得分
+                        td 24
+                        td 欺诈登记
+                        td 较低风险
+            p
+                a 设备信息
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width="30%") 设备名称
+                        td(width="20%") samsung SM-N9600
+                        td(width="30%") 可以设备
+                        td(width="20%") --
+                    tr
+                        td 设备越狱
+                        td 否
+                        td 设备使用代理
+                        td 否
+                    tr
+                        td 同设备使用用户总数
+                        td 1
+                        td 用户使用过的设备
+                        td 1
+                    tr
+                        td 借贷app安装数量
+                        td(colspan='3') 2
+            p
+                a 注册信息
+            ul
+                li 暂无
+            p
+                a 黑名单信息
+            ul.yh_blacklist
+                li
+                    a
+                        span 黑中介分数：
+                        em 32.86（分数取件0-100，10分一下为高危人群）
+                    a
+                        span 直接联系人总数：
+                        em 5（直接联系人：和被查询号码有通话记录）
+                    a
+                        span 引起黑名单的直接联系人数量：
+                        em 5（直接联系人有和黑名单用户的通讯记录的号码数量）
+                    a
+                        span 被标记的黑名单分类：
+                        em --
+                    a
+                        span 身份证姓名黑名单更新时间：
+                        em --
+                    a
+                        span 姓名和电话黑名单更新信息：
+                        em 5（直接联系人有和黑名单用户的通讯记录的号码数量）
+                li
+                    a
+                        span 直接联系人在黑名单数量：
+                        em 0（直接联系人：和被查询号码有通话记录）
+                    a
+                        span 间接联系人在黑名单数量：
+                        em 12（间接联系人：和被查询号码的直接联系人有通话记录）
+                    a
+                        span 引起黑名单的直接联系人占比：
+                        em 100.00%(直接联系人有和黑名单用户的百分比)
+                    a
+                        span 手机和姓名是否在黑名单：
+                        em 否
+                    a
+                        span 身份证和姓名是否在黑名单：
+                        em 否
+                    a
+                        span 黑名单详细信息：
+                        em --
+            p
+                a 查询统计信息
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width="30%") 机构查询统计
+                        td(width="70%") 1
+            p
+                a 机构查询历史
+            table
+                thead
+                    tr
+                        th 查询日期
+                        th 机构类型
+                        th 是否本机查询
+                tbody
+                    tr
+                        td 2019-01-01
+                        td 线上微额快速贷
+                        td 否
+            p
+                a 手机存疑
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此手机的其他姓名
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 姓名
+                    tr
+                        td 2019-01-01 12:00:00
+                        td 大个子
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此手机的其他身份证
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 身份证号码
+                    tr
+                        td 2019-01-01 12:00:00
+                        td 222333444556666767
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此手机的其他身份证
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 机构类型
+                    tr
+                        td 2019-01-01 12:00:00
+                        td --
+            p
+                a 身份证存疑
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此身份证的其他姓名
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 姓名
+                    tr
+                        td 2019-01-01 12:00:00
+                        td 大个子
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此身份证的其他手机
+                        td(width='17.5%') 最后使用时间
+                        td(width='17.5%') 手机号码
+                        td(width='17.5%') 运营商名称
+                        td(width='17.5%') 归属地
+                    tr
+                        td 2019-01-01 12:00:00
+                        td 13723456655
+                        td 中国移动
+                        td 广东汕头
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此手机的其他身份证
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 机构类型
+                    tr
+                        td 2019-01-01 12:00:00
+                        td --
+            table.yh_left_right.yh_doubt
+                tbody
+                    tr
+                        td(rowspan='2' width='30%') 使用过此数据的机构类型
+                        td(width='35%') 最后使用时间
+                        td(width='35%') 机构类型
+                    tr
+                        td 2019-01-01 12:00:00
+                        td 线上信用现金贷
+            p
+                a 七天内历史查询记录
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width='30%') 查询次数
+                        td(width='70%') 0
+                    tr
+                        td 现金贷查询次数
+                        td 0
+                    tr
+                        td 信用卡代还查询次数
+                        td 0
+                    tr
+                        td 消费分期查询次数
+                        td 0
+                    tr
+                        td 查询机构数
+                        td 0
+                    tr
+                        td 现金贷查询机构数
+                        td 0
+                    tr
+                        td 信用卡代还查询机构数
+                        td 0
+                    tr
+                        td 消费分期查询机构数
+                        td 0
+                    tr
+                        td 查询次数在总体查询分布中的百分位
+                        td 0%
+                    tr
+                        td 查询次数在现金贷查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询次数在信用卡代还查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询次数在消费分期查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询机构数在总体查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询机构数在现金贷查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询机构数在信用卡代还查询分布中的百分位
+                        td 0
+                    tr
+                        td 查询机构数在消费分期查询分布中的百分位
+                        td 0
+            p
+                a 消费标签信息
+            table.yh_left_right
+                tbody
+                    tr
+                        td(width='30%') 是否持有信用卡
+                        td(width='70%') 否
+                    tr
+                        td 是否持有白金卡
+                        td 否
+                    tr
+                        td 是否有车
+                        td 否
+                    tr
+                        td 是否购买保险产品
+                        td 否
+                    tr
+                        td 是够购买理财产品
+                        td 否
+                    tr
+                        td 消费能力指数
+                        td 否
+            div.yh_record_img(style='display:none')
+                img(src="../../../public/index/images/record.png")
+                span 暂无相关记录
+        div.yh_perator(v-show='perator')
+            p
+                a 用户申请表检测
+            div.yh_jiedai
+                div.yh_name_chanage
+                    a
+                        span 姓名：
+                        em 孔连顺
+                    a
+                        span 性别：
+                        em 男
+                    a
+                        span 年龄：
+                        em 23
+                    a
+                        span 地址：
+                        em 江西省/九江市/都昌县
+                div.yh_xinxi
+                    a
+                        span 身份证：
+                        em
+                            b 360028982233777
+                            s 不在法院黑名单
+                            s 不在金融机构黑名单
+                div.yh_xinxi
+                    a
+                        span 手机号：
+                        em
+                            b 17879141222【中国联通】【实名认证】（注册时间：2017-09-11 00:00:00）
+                            s(style='margin: 0 10px;color:#4A8BF5') 不在金融机构黑名单
+                            i 用户姓名与运营商提供的姓名【刘能】匹配失效
+                            i 无法判断改号码的电商使用情况（无电商数据）
+                div.yh_xinxi
+                    a
+                        span.yh_lxr 联系人：
+                        em.yh_em_biaoqing
+                            em
+                                b 杨志明 | 同事 | 13344556678
+                                s(style='margin: 0 10px;color:#4A8BF5') 非临时小号
+                                i(style='color:red') *没有该联系人电话的通话记录
+                            em
+                                b 杨志明 | 同事 | 13344556678
+                                s(style='margin: 0 10px;color:#4A8BF5') 非临时小号
+                                i(style='color:red') *没有该联系人电话的通话记录
+            p
+                a 用户行为检测
+            table
+                thead
+                    tr
+                        th(width='30%') 检查项
+                        th(width='30%') 结果
+                        th(width='40%') 依据
+                tbody
+                    tr
+                        td 朋友圈在哪里
+                        td 无数据
+                        td 未提供居住地址
+                    tr
+                        td 号码使用时间
+                        td 至少使用了半年以上（6-24个月，包含6）
+                        td 根据号码【17727372632】运营商提供的认证时间，推算该号码使用21个月
+                    tr
+                        td 手机静默情况（连续24小时内图通话 记录计为静默一天）
+                        td 161内有142天内无通话记录
+                        td 根据运营商详单数据，连续三天以上无通话记录12次: 2018-09-06 - 2018-09-10, 5天 / 2018-09-15 - 2018-09-20, 6天 / 2018-09-26 - 2018-09-30, 5天 / 2018-10-07 - 2018-10-09, 3天 / 2018-10-11 - 2018-10-13, 3天 / 2018-10-16 - 2018-10-20, 5天 / 2018-10-23 - 2018-11-07, 16天 / 2018-11-13 - 2018-11-19, 7天 / 2018-12-01 - 2018 -12-09, 9天 / 2018-12-11 - 2018-12-15, 5天 / 2018-12-17 - 2019-01-31, 46天 / 2019 -02-02 - 2019-02-08, 7天
+                    tr
+                        td 互通过电话的号码数量
+                        td 数量稀少（10以内，不含10）
+                        td 互通过电话的号码有3个，比例为14.29%
+                    tr
+                        td 澳门电话通话情况
+                        td 无通话记录
+                        td 未发现澳门地区电话通话记录
+                    tr
+                        td 110通话情况
+                        td 无通话记录
+                        td 未发现110电话通话记录
+                    tr
+                        td 112通话情况
+                        td 无通话记录
+                        td 未发现112电话通话记录
+                    tr
+                        td 律师号码通话情况
+                        td 无通话记录
+                        td 未发现与律师电话通话记录
+                    tr
+                        td 法院号码通话情况
+                        td 无通话记录
+                        td 未发现与法院电话通话记录
+                    tr
+                        td 夜间活动通话情况（23点-6点）
+                        td 很少夜间活动（夜间通话比例低于20%）
+                        td 夜间活跃频率占全团6.82%
+                    tr
+                        td 贷款类号码联系情况
+                        td 无该号码记录
+                        td 未找到贷款类相关号码
+                    tr
+                        td 银行类号码联系情况
+                        td 无该号码记录
+                        td 未找到银行类相关号码
+                    tr
+                        td 信用卡类号码联系情况
+                        td 无该号码记录
+                        td 未找到信用卡类相关号码
+            p
+                a 运营商消费数据
+            table
+                thead
+                    tr
+                        th 运营商
+                        th 号码
+                        th 归宿地
+                        th 月份
+                        th 呼叫次数
+                        th 主叫次数
+                        th 主叫时间(分钟)
+                        th 被叫次数
+                        th 被叫时间(分钟)
+                        th 短信数量
+                        th 流量
+                        th 话费消费
+                tbody
+                    tr
+                        td 中国联通
+                        td 12333223456
+                        td 江西
+                        td 2019-01
+                        td 4
+                        td 4
+                        td 1.97
+                        td 0
+                        td 0.00
+                        td 1
+                        td 0.00
+                        td 199
+            p
+                a 联系人区域汇总
+            table
+                thead
+                    tr
+                        th 地区
+                        th 号码次数
+                        th 呼入次数
+                        th 呼出次数
+                        th 呼入时间(分钟)
+                        th 呼出时间(分钟)
+                        th 呼入次数百分比
+                        th 呼出次数百分比
+                        th 呼入时间百分比
+                        th 呼出时间百分比
+                tbody
+                    tr
+                        td 云南
+                        td 1
+                        td 6
+                        td 22
+                        td 4.23
+                        td 4.22
+                        td 1.97%
+                        td 10.11%
+                        td 9.88%
+                        td 9.88%
+            p
+                a 运营商数据分析
+            table
+                thead
+                    tr
+                        th 号码
+                        th 最后联系时间
+                        th 互联网标识
+                        th 需求类型
+                        th 归宿地
+                        th 联系次数
+                        th 联系时间
+                        th 主叫次数
+                        th 被叫次数
+                tbody
+                    tr
+                        td 1234455667
+                        td 2019-01-01 12:12:12
+                        td 未知
+                        td 未知
+                        td 云南
+                        td 12
+                        td 20:12
+                        td 11
+                        td 1
+            p
+                a 出行数据分析
+            table
+                thead
+                    tr
+                        th 时间段
+                        th 出发时间
+                        th 回程时间
+                        th 出发地
+                        th 目的地
+                tbody
+                    tr
+                        td 2019-01-01 - 2019-01-02
+                        td 2019-01-01 12:12:12
+                        td 2019-01-01 12:12:12
+                        td 云南
+                        td 云南
+            div.yh_record_img(style='display:none')
+                img(src="../../../public/index/images/record.png")
+                span 暂无相关记录

@@ -1,0 +1,197 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        title 公众号服务设置
+    body
+        div.yh_manage_account#manages_system_publicSettings
+            div.yh_manages_serviceSettings
+                a(@click='RuleSetting' :class='Rule?"yh_active_service":""') 规则设置
+                    a(@click='OpeningSettings' :class='Opening?"yh_active_service":""') 服务开通设置
+            div.yh_setting(v-if='Rule')
+                div.yh_active_center#MultiServiceSettings
+                    div.yh_setting_left
+                        div.service_center
+                            p
+                                a 按天
+                            p
+                                span 最低金额
+                                input
+                                em 元
+                            p
+                                span 最高金额
+                                input
+                                em 元
+                            p
+                                span 快速审核费
+                                input
+                                select
+                                    option 元
+                                    option 美元
+                            p
+                                span 资金通道费
+                                input
+                                em 元
+                            p
+                                span 服务费率
+                                input
+                                em %/天
+                            p
+                                span 利息率
+                                input
+                                em %/天
+                            p
+                                span 逾期费率
+                                input
+                                em %/天
+                            p
+                                span 最高逾期天数
+                                input
+                                em 天
+                            p
+                                span 逾期免费期
+                                input
+                                em 天
+                            p.yh_fuwufei_input
+                                span 服务费扣费方式
+                                select
+                                    option 前置扣费
+                    div.yh_setting_left
+                        div.service_center
+                            p
+                                a 按周
+                            p
+                                span 最低金额
+                                input
+                                em 元
+                            p
+                                span 最高金额
+                                input
+                                em 元
+                            p
+                                span 快速审核费
+                                input
+                                select
+                                    option 元
+                                    option 美元
+                            p
+                                span 资金通道费
+                                input
+                                em 元
+                            p
+                                span 服务费率
+                                input
+                                em %/天
+                            p
+                                span 利息率
+                                input
+                                em %/天
+                            p
+                                span 逾期费率
+                                input
+                                em %/天
+                            p
+                                span 最高逾期天数
+                                input
+                                em 天
+                            p
+                                span 逾期免费期
+                                input
+                                em 天
+                    div.yh_setting_right
+                        div.service_center
+                            p
+                                a 按月
+                            p
+                                span 最低金额
+                                input
+                                em 元
+                            p
+                                span 最高金额
+                                input
+                                em 元
+                            p
+                                span 快速审核费
+                                input
+                                select
+                                    option 元
+                                    option 美元
+                            p
+                                span 资金通道费
+                                input
+                                em 元
+                            p
+                                span 服务费率
+                                input
+                                em %/元
+                            p
+                                span 利息率
+                                input
+                                em %/天
+                            p
+                                span 逾期费率
+                                input
+                                em %/天
+                            p
+                                span 最高逾期天数
+                                input
+                                em 天
+                            p
+                                span 逾期免费期
+                                input
+                                em 天
+                div.yh_tips
+                    span 快速审核费：可有两种选择，选择元是归你管金额；选择百分比则借款金额*百分比
+                    span 服务费扣费方式：前置，放款之前收取快速审核费,资金通道费与服务费。放款金额=借款金额-快速审核费-资金通道费-服务费。
+                div.yh_service_button
+                    a 保存
+            div.yh_manage_setting(v-if='Opening')
+                div.yh_Service_Opening_Settings
+                    p
+                        a 认证设置
+                    p
+                        b(v-for='(item,index) in AuthenticationSettings')
+                            label
+                                input(:id="'input-select-'+index" :name="'input-select-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'input-select-'+index")
+                                span(v-html='item.name')
+                div.yh_Service_Opening_Settings#Opening_Settings
+                    p
+                        a 策略设置
+                    p 手机型号设置
+                    p
+                        b(v-for='(item,index) in PolicySettings.model')
+                            label
+                                input(:id="'select-'+index" :name="'select-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'select-'+index")
+                                span(v-html='item.name')
+                    p 用户地域设置
+                    p
+                        b(v-for='(item,index) in PolicySettings.region')
+                            label
+                                input(:id="'input-'+index" :name="'input-'+index" class="color-input-red" type="checkbox" value='index')
+                                label(:for="'input-'+index")
+                                span(v-html='item.name')
+                    p.yh_Range
+                        s
+                            a 年龄设置
+                            a
+                                input
+                                em 岁 ——
+                                input
+                                em 岁可申请借款
+                        s
+                            a
+                                b
+                                    label
+                                        input(id="input-select-s" name="input-select-s" class="color-input-red" type="checkbox" value='index')
+                                        label(for="input-select-s")
+                                        span 芝麻分设置（设置前需要开通芝麻认证）
+                            a
+                                input
+                                em 分 ——
+                                input
+                                em 分可申请借款
+                div.yh_service_button
+                    a 保存
